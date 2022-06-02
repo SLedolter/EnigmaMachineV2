@@ -59,7 +59,7 @@ namespace EnigmaMachineV2 {
       int index1, index2;
       char char1, char2;
 
-      foreach (string pair in plugboardOrder.Trim().Split(" ")) {
+      foreach (string pair in plugboardOrder.Trim().Split(' ')) {
        index1 = result.IndexOf(pair[0]);
         char1 = result[index1];
         index2 = result.IndexOf(pair[1]);
