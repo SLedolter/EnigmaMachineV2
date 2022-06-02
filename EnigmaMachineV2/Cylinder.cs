@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 namespace EnigmaMachineV2 {
   public class Cylinder {
     public string name;
-    public char ringPosition;
-    public char startPosition;
-    public int stepping = 0;
+    public string ringPosition;
+    public string startPosition;
     public string mapping;
+    public int stepping = 0;
 
-    public Cylinder(string name, char startPosition, char ringPosition, string mapping) {
+    public Cylinder(string name, string startPosition, string ringPosition, string mapping) {
       this.name = name;
       this.startPosition = startPosition;
       this.ringPosition = ringPosition;
@@ -41,10 +41,10 @@ namespace EnigmaMachineV2 {
     }
 
     private bool IsInputLetterValid(char input) {
-      if (input < 'A' && input > 'Z') {
-        return false;
+      if (input >= 'A' && input <= 'Z') {
+        return true;
       }
-      return true;
+      return false;
     }
   }
 }
