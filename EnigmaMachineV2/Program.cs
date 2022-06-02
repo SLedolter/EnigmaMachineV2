@@ -24,8 +24,15 @@ namespace EnigmaMachineV2 {
           Console.CursorLeft = 1;
           Console.Write("ENC>> ");
           while ((input = char.ToUpper(Console.ReadKey().KeyChar)) != '-'){
+            char result = rotor_1.EncodeLetter(input, true);
+
+            if (result == ' ') {
+              continue;
+            }
+
             plainMessage += input;
-            encodedMessage += rotor_1.EncodeLetter(input, true);
+            encodedMessage += result;
+
             Console.CursorTop = 1;
             Console.CursorLeft = 1;
             Console.WriteLine(plainMessage);
