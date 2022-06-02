@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace EnigmaMachineV2 {
   public class Rotor : Cylinder {
-    public string ringPosition;
-    public string startPosition;
+    public char ringPosition;
+    public char startPosition;
     public int stepping = 0;
 
-    public Rotor(string name, string mapping, string ringPosition, string startPosition) : base(name, mapping) {
+    public Rotor(string name, string mapping, char ringPosition, char startPosition) : base(name, mapping) {
       this.ringPosition = ringPosition;
       this.startPosition = startPosition;
     }
@@ -23,6 +23,11 @@ namespace EnigmaMachineV2 {
 
     public void IncreaseStepping() {
       stepping++;
+      startPosition++;
+
+      if(startPosition == ringPosition) {
+        //(Rotor)nextCylinder.IncreaseStepping();
+      }
     }
   }
 }
