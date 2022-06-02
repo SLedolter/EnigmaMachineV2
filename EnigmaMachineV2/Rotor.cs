@@ -18,13 +18,11 @@ namespace EnigmaMachineV2 {
     public override char EncodeLetter(char input, bool beforeReflector) {
       char result = base.EncodeLetter(input, beforeReflector);
 
-      IncreaseStepping();
-      
       return result;
     }
 
-    private void IncreaseStepping() {
-      stepping = (stepping++) % 26;
+    public void IncreaseStepping() {
+      stepping++;
     }
   }
 }

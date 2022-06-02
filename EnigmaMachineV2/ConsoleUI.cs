@@ -61,13 +61,17 @@ namespace EnigmaMachineV2 {
     private void PrintScramblerUnit() {
       Console.CursorTop = 5;
 
-      for(int i = 0; i < enigmaMachine.scramblerUnit.Count; i++) {
+      for(int i = 0; i < enigmaMachine.rotors.Count; i++) {
         Console.CursorLeft = 1;
         Console.WriteLine(EnigmaConfig.ALPHABET);
         Console.CursorLeft = 1;
-        Console.WriteLine(enigmaMachine.scramblerUnit[i].mapping);
+        Console.WriteLine(enigmaMachine.rotors[i].mapping);
         Console.WriteLine();
       }
+
+      Console.CursorLeft = 1;
+      Console.WriteLine(enigmaMachine.reflector.mapping);
+      Console.WriteLine();
     }
 
     private void PrintTypedAndEncodedMessage() {
