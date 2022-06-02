@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace EnigmaMachineV2 {
   class Program {
     static void Main(string[] args) {
-      Cylinder rotor_1 = EnigmaMachineFactory.CreateRotor1("A");
+      EnigmaMachine enigmaMachine = EnigmaMachineFactory.CreateSimpleRotor1ReflectorEnigmaMachine("A");
 
       string command;
       do {
@@ -24,7 +24,7 @@ namespace EnigmaMachineV2 {
           Console.CursorLeft = 1;
           Console.Write("ENC>> ");
           while ((input = char.ToUpper(Console.ReadKey().KeyChar)) != '-'){
-            char result = rotor_1.EncodeLetter(input, true);
+            char result = enigmaMachine.EncodeLetter(input);
 
             if (result == ' ') {
               continue;

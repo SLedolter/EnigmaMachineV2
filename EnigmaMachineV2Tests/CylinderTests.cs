@@ -6,7 +6,7 @@ namespace EnigmaMachineV2Tests {
   [TestClass]
   public class CylinderTests {
     [TestMethod]
-    public void Test_Rotor1_Encoding_Before_Reflector() {
+    public void Test_Rotor1_Encoding_Before_Reflector_With_A() {
       Cylinder rotor1 = new Cylinder("I", "A", EnigmaConfig.TURNOVER_1_CYLINDER_1, EnigmaConfig.CYLINDER_1);
 
       char expected = 'E';
@@ -16,7 +16,7 @@ namespace EnigmaMachineV2Tests {
     }
 
     [TestMethod]
-    public void Test_Rotor1_Encoding_After_Reflector() {
+    public void Test_Rotor1_Encoding_After_Reflector_With_A() {
       Cylinder rotor1 = new Cylinder("I", "A", EnigmaConfig.TURNOVER_1_CYLINDER_1, EnigmaConfig.CYLINDER_1);
 
       char expected = 'U';

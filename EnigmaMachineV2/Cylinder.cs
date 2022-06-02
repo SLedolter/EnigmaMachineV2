@@ -12,11 +12,28 @@ namespace EnigmaMachineV2 {
     public string mapping;
     public int stepping = 0;
 
+    public Cylinder previousCylinder;
+    public Cylinder nextCylinder;
+
     public Cylinder(string name, string startPosition, string ringPosition, string mapping) {
       this.name = name;
       this.startPosition = startPosition;
       this.ringPosition = ringPosition;
       this.mapping = mapping;
+    }
+
+    public void ConnectNextCylinder(Cylinder nextCylinder) {
+      this.nextCylinder = nextCylinder;
+      if(nextCylinder.previousCylinder != this) {
+        nextCylinder.ConnectPreviousCylinder(this);
+      }
+    }
+
+    public void ConnectPreviousCylinder(Cylinder previousCylinder) {
+      this.previousCylinder = previousCylinder;
+      if(previousCylinder.nextCylinder != this) {
+        previousCylinder.nextCylinder = this;
+      }
     }
 
     public char EncodeLetter(char input, bool beforeReflector) {
