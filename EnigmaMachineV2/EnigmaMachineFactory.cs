@@ -10,12 +10,12 @@ namespace EnigmaMachineV2 {
       return new EnigmaMachine("Simple Rotor1 - Reflector A");
     }
 
-    public static Cylinder CreateRotor1(string startPosition) {
-      return new Cylinder("Rotor_I", startPosition, EnigmaConfig.TURNOVER_1_CYLINDER_1, EnigmaConfig.CYLINDER_1);
+    public static Rotor CreateRotor1(string startPosition) {
+      return new Rotor("Rotor_I", EnigmaConfig.CYLINDER_1, startPosition, EnigmaConfig.TURNOVER_1_CYLINDER_1);
     }
 
     public static Cylinder CreateReflectorA() {
-      return new Cylinder("Reflector", "A", "A", EnigmaConfig.TransformSwitchedPlugsToAlphabet(EnigmaConfig.REFLECTOR_A));
+      return new Cylinder("Reflector", EnigmaConfig.TransformSwitchedPlugsToAlphabet(EnigmaConfig.REFLECTOR_A));
     }
   }
 }

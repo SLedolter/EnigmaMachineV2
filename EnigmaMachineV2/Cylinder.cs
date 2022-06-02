@@ -7,18 +7,13 @@ using System.Threading.Tasks;
 namespace EnigmaMachineV2 {
   public class Cylinder {
     public string name;
-    public string ringPosition;
-    public string startPosition;
     public string mapping;
-    public int stepping = 0;
 
     public Cylinder previousCylinder;
     public Cylinder nextCylinder;
 
-    public Cylinder(string name, string startPosition, string ringPosition, string mapping) {
+    public Cylinder(string name, string mapping) {
       this.name = name;
-      this.startPosition = startPosition;
-      this.ringPosition = ringPosition;
       this.mapping = mapping;
     }
 
@@ -36,7 +31,7 @@ namespace EnigmaMachineV2 {
       }
     }
 
-    public char EncodeLetter(char input, bool beforeReflector) {
+    public virtual char EncodeLetter(char input, bool beforeReflector) {
       char result;
       string inputScheme, outputScheme;
 
