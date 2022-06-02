@@ -10,8 +10,19 @@ namespace EnigmaMachineV2Tests {
       EnigmaMachine enigmaMachine = new EnigmaMachine("Rotor 1 - Reflector");
 
       char result = enigmaMachine.EncodeLetter('A');
+      char expected = 'U';
 
-      throw new NotImplementedException();
+      Assert.AreEqual(expected, result);
+    }
+
+    [TestMethod]
+    public void Test_Simple_Enigma_Rotor1_Reflector_No_Stepping_With_X() {
+      EnigmaMachine enigmaMachine = new EnigmaMachine("Rotor 1 - Reflector");
+
+      char result = enigmaMachine.EncodeLetter('X');
+      char expected = 'K';
+
+      Assert.AreEqual(expected, result);
     }
   }
 }

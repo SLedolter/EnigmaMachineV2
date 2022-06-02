@@ -18,15 +18,15 @@ namespace EnigmaMachineV2 {
     }
 
     public char EncodeLetter(char input) {
-      char result = ' ';
+      char result = input;
       bool beforeReflector = true;
 
       for(int i = 0; i < scramblerUnit.Count; i++) {
-        result = scramblerUnit[i].EncodeLetter(input, beforeReflector);
+        result = scramblerUnit[i].EncodeLetter(result, beforeReflector);
       }
 
       for(int i = scramblerUnit.Count-2; i >= 0; i--) {
-        result = scramblerUnit[i].EncodeLetter(input, !beforeReflector);
+        result = scramblerUnit[i].EncodeLetter(result, !beforeReflector);
       }
 
       return result;

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace EnigmaMachineV2 {
   public class ConsoleUI {
+    string plainMessage = "";
+    string encodedMessage = "";
+
     EnigmaMachine enigmaMachine;
 
     public ConsoleUI(EnigmaMachine enigmaMachine) {
@@ -22,8 +25,6 @@ namespace EnigmaMachineV2 {
 
         if (command == "1") {
           char input;
-          string plainMessage = "";
-          string encodedMessage = "";
           Console.CursorTop = Console.WindowHeight - 2;
           Console.CursorLeft = 1;
           Console.Write("ENC>> ");
@@ -37,19 +38,44 @@ namespace EnigmaMachineV2 {
             plainMessage += input;
             encodedMessage += result;
 
-            Console.CursorTop = 1;
-            Console.CursorLeft = 1;
-            Console.WriteLine(plainMessage);
-            Console.CursorLeft = 1;
-            Console.WriteLine(encodedMessage);
-
-            Console.CursorTop = Console.WindowHeight - 2;
-            Console.CursorLeft = 1;
-            Console.Write("ENC>> ");
+            PrintScreen();
           }
         }
 
       } while (command != "exit");
+    }
+
+    private void PrintScreen() {
+      PrintTypedAndEncodedMessage();
+      PrintScramblerUnit();
+
+      PrintCommandSecction();
+    }
+
+    private void PrintCommandSecction() {
+      Console.CursorTop = Console.WindowHeight - 2;
+      Console.CursorLeft = 1;
+      Console.Write("ENC>> ");
+    }
+
+    private void PrintScramblerUnit() {
+      Console.CursorTop = 5;
+
+      for(int i = 0; i < enigmaMachine.scramblerUnit.Count; i++) {
+        Console.CursorLeft = 1;
+        Console.WriteLine(EnigmaConfig.ALPHABET);
+        Console.CursorLeft = 1;
+        Console.WriteLine(enigmaMachine.scramblerUnit[i].mapping);
+        Console.WriteLine();
+      }
+    }
+
+    private void PrintTypedAndEncodedMessage() {
+      Console.CursorTop = 1;
+      Console.CursorLeft = 1;
+      Console.WriteLine(plainMessage);
+      Console.CursorLeft = 1;
+      Console.WriteLine(encodedMessage);
     }
   }
 }
