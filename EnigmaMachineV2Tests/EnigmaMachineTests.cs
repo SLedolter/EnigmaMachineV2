@@ -7,7 +7,7 @@ namespace EnigmaMachineV2Tests {
   public class EnigmaMachineTests {
     [TestMethod]
     public void Test_Simple_Enigma_Rotor1_Reflector_No_Stepping_With_A() {
-      EnigmaMachine enigmaMachine = new EnigmaMachine("Rotor 1 - Reflector");
+      EnigmaMachine enigmaMachine = EnigmaMachineFactory.CreateSimpleRotor1ReflectorEnigmaMachine("A");
 
       char result = enigmaMachine.EncodeLetterChained('A');
       char expected = 'U';
@@ -17,7 +17,7 @@ namespace EnigmaMachineV2Tests {
 
     [TestMethod]
     public void Test_Simple_Enigma_Rotor1_Reflector_No_Stepping_With_X() {
-      EnigmaMachine enigmaMachine = new EnigmaMachine("Rotor 1 - Reflector");
+      EnigmaMachine enigmaMachine = EnigmaMachineFactory.CreateSimpleRotor1ReflectorEnigmaMachine("A");
 
       char result = enigmaMachine.EncodeLetterChained('X');
       char expected = 'K';

@@ -7,7 +7,21 @@ using System.Threading.Tasks;
 namespace EnigmaMachineV2 {
   public static class EnigmaMachineFactory {
     public static EnigmaMachine CreateSimpleRotor1ReflectorEnigmaMachine(string startPositions) {
-      return new EnigmaMachine("Simple Rotor1 - Reflector A");
+      EnigmaMachine enigmaMachine = 
+        new EnigmaMachine(
+          "Unencoded Plugboard - Simple Rotor1 - Reflector A", 
+          EnigmaConfig.TransformSwitchedPlugsToAlphabet(EnigmaConfig.PLUGBOARD_UNENCODED)
+        );
+      return enigmaMachine;
+    }
+
+    public static EnigmaMachine CreateDay29EnigmaMachine(string startPositions) {
+      EnigmaMachine enigmaMachine =
+        new EnigmaMachine(
+          "Unencoded Plugboard - Simple Rotor1 - Reflector A",
+          EnigmaConfig.TransformSwitchedPlugsToAlphabet(EnigmaConfig.PLUGBOARD_DAY_29)
+        );
+      return enigmaMachine;
     }
 
     public static Rotor CreateRotor1(char startPosition) {

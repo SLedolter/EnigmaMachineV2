@@ -7,6 +7,7 @@ namespace EnigmaMachineV2 {
     public const string ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     public const string PLUGBOARD_DAY_29 = "AD CN ET FL GI JV KZ PU QY WX";
+    public const string PLUGBOARD_UNENCODED = "AA";
 
     public const string CYLINDER_1 = "EKMFLGDQVZNTOWYHXUSPAIBRCJ";
     public const char TURNOVER_1_CYLINDER_1 = 'Q';

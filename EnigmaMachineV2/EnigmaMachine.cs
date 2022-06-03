@@ -11,10 +11,10 @@ namespace EnigmaMachineV2 {
     public List<Rotor> rotors = new List<Rotor>();
     public Cylinder reflector;
 
-    public EnigmaMachine(string name) {
+    public EnigmaMachine(string name, string plugboardConfig) {
       this.name = name;
 
-      entryWheel = EnigmaMachineFactory.CreatePlainEntryWheel();
+      entryWheel = new Cylinder("Entry Wheel", plugboardConfig);
       rotors.Add(EnigmaMachineFactory.CreateRotor1('A'));
       reflector = EnigmaMachineFactory.CreateReflectorA();
 
