@@ -49,7 +49,8 @@ namespace EnigmaMachineV2 {
         outputScheme = EnigmaConfig.ALPHABET;
       }
 
-      result = outputScheme[inputScheme.IndexOf(input)];
+      int indexInInputScheme = (inputScheme.IndexOf(input)+stepping)%26;
+      result = outputScheme[indexInInputScheme];
 
       if(beforeReflector && nextCylinder != null) {
         result = nextCylinder.EncodeLetterChained(result, true);

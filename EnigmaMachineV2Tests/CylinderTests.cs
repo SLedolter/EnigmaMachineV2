@@ -24,5 +24,17 @@ namespace EnigmaMachineV2Tests {
 
       Assert.AreEqual(expected, result);
     }
+
+    [TestMethod]
+    public void Test_Rotor1_Stepping_3_Chars() {
+      Cylinder rotor1 = EnigmaMachineFactory.CreateRotor1('A');
+
+      int expected = 3;
+      char dummy = rotor1.EncodeLetterChained('A', true);
+      dummy = rotor1.EncodeLetterChained(dummy, true);
+      dummy = rotor1.EncodeLetterChained(dummy, true);
+
+      Assert.AreEqual(expected, rotor1.stepping);
+    }
   }
 }

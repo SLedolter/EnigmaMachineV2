@@ -22,15 +22,13 @@ namespace EnigmaMachineV2 {
       string command;
       do {
         PrintScreen();
-
         command = Console.ReadLine();
 
         if (command == "1") {
           currentMenuPrefix = "ENC";
           char input;
+          PrintScreen();
           while ((input = char.ToUpper(Console.ReadKey().KeyChar)) != '-') {
-            PrintScreen();
-
             char result = enigmaMachine.EncodeLetterChained(input);
 
             if (result == ' ') {
@@ -39,7 +37,9 @@ namespace EnigmaMachineV2 {
 
             plainMessage += input;
             encodedMessage += result;
+            PrintScreen();
           }
+          enigmaMachine.Reset();
         }
 
       } while (command != "exit");
@@ -97,7 +97,12 @@ namespace EnigmaMachineV2 {
       Console.CursorLeft = x;
       Console.CursorTop = y;
       Console.WriteLine($"{cylinderName}");
-
+      
+      if(cylinder.GetType().Name == "Rotor") {
+        Rotor rotor = (Rotor)cylinder;
+        Console.CursorLeft = x + EnigmaConfig.ALPHABET.IndexOf(rotor.startPosition);
+        Console.WriteLine("V");
+      }
       Console.CursorLeft = x;
       Console.WriteLine(EnigmaConfig.ALPHABET);
       Console.CursorLeft = x;

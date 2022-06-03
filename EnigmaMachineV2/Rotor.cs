@@ -22,9 +22,11 @@ namespace EnigmaMachineV2 {
 
     public override void IncreaseStepping() {
       stepping++;
+      stepping %= 26;
+
       startPosition++;
 
-      if(startPosition >= 'Z') {
+      if(startPosition > 'Z') {
         startPosition = 'A';
       }
 

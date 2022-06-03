@@ -38,6 +38,10 @@ namespace EnigmaMachineV2 {
       }
     }
 
+    public void Reset() {
+      entryWheel.Reset();
+    }
+
     public char EncodeLetterChained(char input) {
       char result;
 
