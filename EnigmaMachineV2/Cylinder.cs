@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -50,6 +51,10 @@ namespace EnigmaMachineV2 {
       result = outputScheme[inputScheme.IndexOf(input)];
 
       return result;
+    }
+
+    public virtual void IncreaseStepping() {
+      Debug.WriteLine($"{this.GetType().Name}");
     }
 
     private bool IsInputLetterValid(char input) {

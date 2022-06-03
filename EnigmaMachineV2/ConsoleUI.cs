@@ -62,12 +62,14 @@ namespace EnigmaMachineV2 {
     private void PrintScramblerUnit() {
       Console.CursorTop = 5;
 
+      DrawCylinder(1, MESSAGE_AREA_HEIGHT, enigmaMachine.entryWheel);
+
       for(int i = 0; i < enigmaMachine.rotors.Count; i++) {
-        DrawCylinder(1, (i*5) + MESSAGE_AREA_HEIGHT, enigmaMachine.rotors[i]);  
+        DrawCylinder(1, ((i+1)*5) + MESSAGE_AREA_HEIGHT, enigmaMachine.rotors[i]);  
         Console.WriteLine();
       }
 
-      DrawCylinder(1, enigmaMachine.rotors.Count * 5 + MESSAGE_AREA_HEIGHT, enigmaMachine.reflector);
+      DrawCylinder(1, (enigmaMachine.rotors.Count + 1) * 5 + MESSAGE_AREA_HEIGHT, enigmaMachine.reflector);
       Console.WriteLine();
     }
 
@@ -82,8 +84,10 @@ namespace EnigmaMachineV2 {
     public void DrawCylinder(int x, int y, Cylinder cylinder) {
       Console.CursorLeft = x;
       Console.CursorTop = y;
+      Console.WriteLine(cylinder.name);
+      Console.CursorLeft = x;
       Console.WriteLine(EnigmaConfig.ALPHABET);
-      Console.CursorLeft = 1;
+      Console.CursorLeft = x;
       Console.WriteLine(cylinder.mapping);
     }
   }

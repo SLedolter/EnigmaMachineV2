@@ -14,6 +14,7 @@ namespace EnigmaMachineV2 {
     public EnigmaMachine(string name) {
       this.name = name;
 
+      entryWheel = EnigmaMachineFactory.CreatePlainEntryWheel();
       rotors.Add(EnigmaMachineFactory.CreateRotor1('A'));
       reflector = EnigmaMachineFactory.CreateReflectorA();
 
@@ -24,6 +25,8 @@ namespace EnigmaMachineV2 {
       char result = input;
       bool beforeReflector = true;
 
+      result = entryWheel.EncodeLetter(result, beforeReflector);
+
       for(int i = 0; i < rotors.Count; i++) {
         result = rotors[i].EncodeLetter(result, beforeReflector);
       }
@@ -33,8 +36,8 @@ namespace EnigmaMachineV2 {
       for(int i = rotors.Count-1; i >= 0; i--) {
         result = rotors[i].EncodeLetter(result, !beforeReflector);
       }
+      result = entryWheel.EncodeLetter(result, !beforeReflector);
 
-      rotors[0].IncreaseStepping();
 
       return result;
     }

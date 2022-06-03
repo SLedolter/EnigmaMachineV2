@@ -21,7 +21,7 @@ namespace EnigmaMachineV2 {
       return result;
     }
 
-    public void IncreaseStepping() {
+    public override void IncreaseStepping() {
       stepping++;
       startPosition++;
 
