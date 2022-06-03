@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace EnigmaMachineV2 {
   public class ConsoleUI {
+    const int MESSAGE_AREA_HEIGHT = 5;
     string plainMessage = "";
     string encodedMessage = "";
 
@@ -62,11 +63,11 @@ namespace EnigmaMachineV2 {
       Console.CursorTop = 5;
 
       for(int i = 0; i < enigmaMachine.rotors.Count; i++) {
-        DrawCylinder(1, (i*5), enigmaMachine.rotors[i]);  
+        DrawCylinder(1, (i*5) + MESSAGE_AREA_HEIGHT, enigmaMachine.rotors[i]);  
         Console.WriteLine();
       }
 
-      DrawCylinder(1, enigmaMachine.rotors.Count * 5, enigmaMachine.reflector);
+      DrawCylinder(1, enigmaMachine.rotors.Count * 5 + MESSAGE_AREA_HEIGHT, enigmaMachine.reflector);
       Console.WriteLine();
     }
 
