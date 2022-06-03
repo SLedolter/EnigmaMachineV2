@@ -11,11 +11,15 @@ namespace EnigmaMachineV2 {
     public List<Rotor> rotors = new List<Rotor>();
     public Cylinder reflector;
 
-    public EnigmaMachine(string name, string plugboardConfig) {
+    public EnigmaMachine(string name, string plugboardConfig, string[] usedRotors) {
       this.name = name;
 
       entryWheel = new Cylinder("Entry Wheel", plugboardConfig);
-      rotors.Add(EnigmaMachineFactory.CreateRotor1('A'));
+
+      for(int i = 0; i < usedRotors.Length; i++) {
+        rotors.Add(new Rotor($"Rotor{usedRotors[i]}", EnigmaConfig.ROTOR_1, EnigmaConfig.TURNOVER_1_ROTOR_1, 'A'));
+      }
+
       reflector = EnigmaMachineFactory.CreateReflectorA();
 
       entryWheel.ConnectNextCylinder(rotors.First());

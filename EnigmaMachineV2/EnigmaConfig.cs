@@ -9,35 +9,35 @@ namespace EnigmaMachineV2 {
     public const string PLUGBOARD_DAY_29 = "AD CN ET FL GI JV KZ PU QY WX";
     public const string PLUGBOARD_UNENCODED = "AA";
 
-    public const string CYLINDER_1 = "EKMFLGDQVZNTOWYHXUSPAIBRCJ";
-    public const char TURNOVER_1_CYLINDER_1 = 'Q';
+    public const string ROTOR_1 = "EKMFLGDQVZNTOWYHXUSPAIBRCJ";
+    public const char TURNOVER_1_ROTOR_1 = 'Q';
     
-    public const string CYLINDER_2 = "AJDKSIRUXBLHWTMCQGZNPYFVOE";
-    public const char TURNOVER_1_CYLINDER_2 = 'E';
+    public const string ROTOR_2 = "AJDKSIRUXBLHWTMCQGZNPYFVOE";
+    public const char TURNOVER_1_ROTOR_2 = 'E';
 
-    public const string CYLINDER_3 = "BDFHJLCPRTXVZNYEIWGAKMUSQO";
-    public const int TURNOVER_1_CYLINDER_3 = 22;
+    public const string ROTOR_3 = "BDFHJLCPRTXVZNYEIWGAKMUSQO";
+    public const int TURNOVER_1_ROTOR_3 = 22;
 
-    public const string CYLINDER_4 = "ESOVPZJAYQUIRHXLNFTGKDCMWB";
-    public const int TURNOVER_1_CYLINDER_4 = 10;
+    public const string ROTOR_4 = "ESOVPZJAYQUIRHXLNFTGKDCMWB";
+    public const int TURNOVER_1_ROTOR_4 = 10;
 
-    public const string CYLINDER_5 = "VZBRGITYUPSDNHLXAWMJQOFECK";
-    public const int TURNOVER_1_CYLINDER_5 = 26;
+    public const string ROTOR_5 = "VZBRGITYUPSDNHLXAWMJQOFECK";
+    public const int TURNOVER_1_ROTOR_5 = 26;
 
-    public const string CYLINDER_6 = "JPGVOUMFYQBENHZRDKASXLICTW";
-    public const int TURNOVER_1_CYLINDER_6 = 26;
-    public const int TURNOVER_2_CYLINDER_6 = 13;
+    public const string ROTOR_6 = "JPGVOUMFYQBENHZRDKASXLICTW";
+    public const int TURNOVER_1_ROTOR_6 = 26;
+    public const int TURNOVER_2_ROTOR_6 = 13;
 
-    public const string CYLINDER_7 = "NZJHGRCXMYSWBOUFAIVLPEKQDT";
-    public const int TURNOVER_1_CYLINDER_7 = 26;
-    public const int TURNOVER_2_CYLINDER_7 = 13;
+    public const string ROTOR_7 = "NZJHGRCXMYSWBOUFAIVLPEKQDT";
+    public const int TURNOVER_1_ROTOR_7 = 26;
+    public const int TURNOVER_2_ROTOR_7 = 13;
 
-    public const string CYLINDER_8 = "FKQHTLXOCBJSPDZRAMEWNIUYGV";
-    public const int TURNOVER_1_CYLINDER_8 = 26;
-    public const int TURNOVER_2_CYLINDER_8 = 13;
+    public const string ROTOR_8 = "FKQHTLXOCBJSPDZRAMEWNIUYGV";
+    public const int TURNOVER_1_ROTOR_8 = 26;
+    public const int TURNOVER_2_ROTOR_8 = 13;
 
-    public const string CYLINDER_BETA_M4 = "LEYJVCNIXWPBQMDRTAKZGFUHOS";
-    public const string CYLINDER_GAMMA_M4 = "FSOKANUERHMBTIYCWLQPZXVGJD";
+    public const string ROTOR_BETA_M4 = "LEYJVCNIXWPBQMDRTAKZGFUHOS";
+    public const string ROTOR_GAMMA_M4 = "FSOKANUERHMBTIYCWLQPZXVGJD";
 
     public const string REFLECTOR_A = "AE BJ CM DZ FL GY HX IV KW NR OQ PU ST";
     public const string REFLECTOR_A_SOLUTION = "EJMZALYXVBWFCRQUONTSPIKHGD";
