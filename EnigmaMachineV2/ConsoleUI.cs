@@ -30,7 +30,7 @@ namespace EnigmaMachineV2 {
           Console.CursorLeft = 1;
           Console.Write("ENC>> ");
           while ((input = char.ToUpper(Console.ReadKey().KeyChar)) != '-') {
-            char result = enigmaMachine.EncodeLetter(input);
+            char result = enigmaMachine.EncodeLetterChained(input);
 
             if (result == ' ') {
               continue;

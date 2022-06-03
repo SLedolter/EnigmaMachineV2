@@ -18,7 +18,15 @@ namespace EnigmaMachineV2 {
       rotors.Add(EnigmaMachineFactory.CreateRotor1('A'));
       reflector = EnigmaMachineFactory.CreateReflectorA();
 
-      rotors.Last().ConnectNextCylinder(reflector);
+      entryWheel.ConnectNextCylinder(rotors.First());
+      
+      foreach(Rotor rotor in rotors) {
+        if(rotor == rotors.Last()) {
+          rotors.Last().ConnectNextCylinder(reflector);
+          break;
+        }
+        rotor.ConnectNextCylinder(rotors[rotors.IndexOf(rotor)+1]);
+      }
     }
 
     public char EncodeLetter(char input) {
@@ -38,6 +46,13 @@ namespace EnigmaMachineV2 {
       }
       result = entryWheel.EncodeLetter(result, !beforeReflector);
 
+      return result;
+    }
+
+    public char EncodeLetterChained(char input) {
+      char result;
+
+      result = entryWheel.EncodeLetterChained(input, true);
 
       return result;
     }

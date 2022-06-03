@@ -53,6 +53,35 @@ namespace EnigmaMachineV2 {
       return result;
     }
 
+    public virtual char EncodeLetterChained(char input, bool beforeReflector) {
+      char result;
+      string inputScheme, outputScheme;
+
+      if (!IsInputLetterValid(input)) {
+        return ' ';
+      }
+
+      if (beforeReflector) {
+        inputScheme = EnigmaConfig.ALPHABET;
+        outputScheme = mapping;
+      } else {
+        inputScheme = mapping;
+        outputScheme = EnigmaConfig.ALPHABET;
+      }
+
+      result = outputScheme[inputScheme.IndexOf(input)];
+
+      if(beforeReflector && nextCylinder != null) {
+        result = nextCylinder.EncodeLetterChained(result, true);
+      }
+
+      if(!beforeReflector && previousCylinder != null) {
+        result = previousCylinder.EncodeLetterChained(result, false);
+      }
+
+      return result;
+    }
+
     public virtual void IncreaseStepping() {
       Debug.WriteLine($"{this.GetType().Name}");
     }
