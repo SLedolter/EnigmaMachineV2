@@ -75,7 +75,7 @@ namespace EnigmaMachineV2 {
         result = nextCylinder.EncodeLetterChained(result, true);
       }
 
-      if(!beforeReflector && previousCylinder != null) {
+      if((nextCylinder == null || !beforeReflector) && previousCylinder != null) {
         result = previousCylinder.EncodeLetterChained(result, false);
       }
 

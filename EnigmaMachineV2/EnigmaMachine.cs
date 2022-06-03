@@ -29,26 +29,6 @@ namespace EnigmaMachineV2 {
       }
     }
 
-    public char EncodeLetter(char input) {
-      char result = input;
-      bool beforeReflector = true;
-
-      result = entryWheel.EncodeLetter(result, beforeReflector);
-
-      for(int i = 0; i < rotors.Count; i++) {
-        result = rotors[i].EncodeLetter(result, beforeReflector);
-      }
-
-      result = reflector.EncodeLetter(result, beforeReflector);
-
-      for(int i = rotors.Count-1; i >= 0; i--) {
-        result = rotors[i].EncodeLetter(result, !beforeReflector);
-      }
-      result = entryWheel.EncodeLetter(result, !beforeReflector);
-
-      return result;
-    }
-
     public char EncodeLetterChained(char input) {
       char result;
 

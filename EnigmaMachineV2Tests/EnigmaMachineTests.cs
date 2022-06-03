@@ -9,7 +9,7 @@ namespace EnigmaMachineV2Tests {
     public void Test_Simple_Enigma_Rotor1_Reflector_No_Stepping_With_A() {
       EnigmaMachine enigmaMachine = new EnigmaMachine("Rotor 1 - Reflector");
 
-      char result = enigmaMachine.EncodeLetter('A');
+      char result = enigmaMachine.EncodeLetterChained('A');
       char expected = 'U';
 
       Assert.AreEqual(expected, result);
@@ -19,7 +19,7 @@ namespace EnigmaMachineV2Tests {
     public void Test_Simple_Enigma_Rotor1_Reflector_No_Stepping_With_X() {
       EnigmaMachine enigmaMachine = new EnigmaMachine("Rotor 1 - Reflector");
 
-      char result = enigmaMachine.EncodeLetter('X');
+      char result = enigmaMachine.EncodeLetterChained('X');
       char expected = 'K';
 
       Assert.AreEqual(expected, result);
