@@ -42,6 +42,7 @@ namespace EnigmaMachineV2 {
       char result;
 
       result = entryWheel.EncodeLetterChained(input, true);
+      rotors.First().IncreaseStepping();
 
       return result;
     }

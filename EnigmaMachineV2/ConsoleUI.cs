@@ -48,7 +48,7 @@ namespace EnigmaMachineV2 {
 
     private void PrintScreen() {
       Console.Clear();
-      PrintTypedAndEncodedMessage(Console.WindowWidth/2, 0);
+      PrintTypedAndEncodedMessage(Console.WindowWidth / 2, 0);
       PrintScramblerUnit(0, 0);
 
       PrintCommandSection(currentMenuPrefix);
@@ -69,8 +69,8 @@ namespace EnigmaMachineV2 {
       y += PADDING;
       DrawCylinder(x, y, enigmaMachine.entryWheel);
 
-      for(int i = 0; i < enigmaMachine.rotors.Count; i++) {
-        DrawCylinder(x, ((i+1)*5) + y, enigmaMachine.rotors[i]);  
+      for (int i = 0; i < enigmaMachine.rotors.Count; i++) {
+        DrawCylinder(x, ((i + 1) * 5) + y, enigmaMachine.rotors[i]);
         Console.WriteLine();
       }
 
@@ -97,7 +97,7 @@ namespace EnigmaMachineV2 {
       Console.CursorLeft = x;
       Console.CursorTop = y;
       Console.WriteLine($"{cylinderName}");
-      
+
       Console.CursorLeft = x;
       Console.WriteLine(EnigmaConfig.ALPHABET);
       Console.CursorLeft = x;

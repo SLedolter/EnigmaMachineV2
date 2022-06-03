@@ -24,8 +24,12 @@ namespace EnigmaMachineV2 {
       stepping++;
       startPosition++;
 
-      if(startPosition == ringPosition) {
-        //(Rotor)nextCylinder.IncreaseStepping();
+      if(startPosition >= 'Z') {
+        startPosition = 'A';
+      }
+
+      if(startPosition == ringPosition && nextCylinder.GetType().Name == "Rotor") {
+        nextCylinder.IncreaseStepping();
       }
     }
   }
