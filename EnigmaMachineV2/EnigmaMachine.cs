@@ -11,7 +11,7 @@ namespace EnigmaMachineV2 {
     public List<Rotor> rotors = new List<Rotor>();
     public Reflector reflector;
 
-    public EnigmaMachine(string name, string plugboardConfig, string[] usedRotors, string reflectorConfig) {
+    public EnigmaMachine(string name, string plugboardConfig, string[] usedRotors, string reflectorConfig, string ringPosition, string ringStance) {
       this.name = name;
 
       entryWheel = new EntryWheel("Entry Wheel", plugboardConfig);
@@ -22,7 +22,8 @@ namespace EnigmaMachineV2 {
             $"Rotor{usedRotors[i]}", 
             (string)typeof(EnigmaConfig).GetField("ROTOR_"+usedRotors[i]).GetValue(null),
             (char)typeof(EnigmaConfig).GetField("TURNOVER_1_ROTOR_" + usedRotors[i]).GetValue(null),
-            'A'));
+            ringPosition[i],
+            ringStance[i]));
       }
 
       reflectorConfig = "REFLECTOR_" + reflectorConfig;
@@ -49,10 +50,21 @@ namespace EnigmaMachineV2 {
     public char EncodeLetterChained(char input) {
       char result;
 
-      result = entryWheel.EncodeLetterChained(input, true);
+      if (!IsInputLetterValid(input)) {
+        return ' ';
+      }
+
       rotors.First().IncreaseStepping();
+      result = entryWheel.EncodeLetterChained(input, true);
 
       return result;
+    }
+
+    private bool IsInputLetterValid(char input) {
+      if (input >= 'A' && input <= 'Z') {
+        return true;
+      }
+      return false;
     }
   }
 }

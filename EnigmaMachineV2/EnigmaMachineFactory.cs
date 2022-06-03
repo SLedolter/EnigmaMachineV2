@@ -12,7 +12,9 @@ namespace EnigmaMachineV2 {
           "Unencoded Plugboard - Simple Rotor1 - Reflector A", 
           EnigmaConfig.TransformSwitchedPlugsToAlphabet(EnigmaConfig.PLUGBOARD_UNENCODED),
           new string[] {"1"},
-          "A"
+          "A",
+          "AAA",
+          "AAA"
         );
       return enigmaMachine;
     }
@@ -23,7 +25,22 @@ namespace EnigmaMachineV2 {
           "Unencoded Plugboard - Simple Rotor1 - Reflector A",
           EnigmaConfig.TransformSwitchedPlugsToAlphabet(EnigmaConfig.PLUGBOARD_DAY_29),
           new string[] { "1" },
-          "B"
+          "B",
+          "AAA",
+          "AAA"
+        );
+      return enigmaMachine;
+    }
+
+    public static EnigmaMachine CreateEnigmaInstructionManual1930Machine() {
+      EnigmaMachine enigmaMachine =
+        new EnigmaMachine(
+          "Unencoded Plugboard - Simple Rotor1 - Reflector A",
+          EnigmaConfig.TransformSwitchedPlugsToAlphabet(EnigmaConfig.PLUGBOARD_ENIGMA_INSTRUCTION_MANUAL),
+          new string[] { "2", "1", "3" },
+          "A",
+          "XMV",
+          "ABL"
         );
       return enigmaMachine;
     }
@@ -34,13 +51,15 @@ namespace EnigmaMachineV2 {
           "Unencoded Plugboard - Rotor1,2,3 - Reflector A",
           EnigmaConfig.TransformSwitchedPlugsToAlphabet(EnigmaConfig.PLUGBOARD_DAY_29),
           new string[] { "1", "2", "3" },
-          "A"
+          "A",
+          "AAA",
+          "AAA"
         );
       return enigmaMachine;
     }
 
-    public static Rotor CreateRotor1(char startPosition) {
-      return new Rotor("Rotor_I", EnigmaConfig.ROTOR_1, startPosition, EnigmaConfig.TURNOVER_1_ROTOR_1);
+    public static Rotor CreateRotor1(char ringPosition, char startPosition) {
+      return new Rotor("Rotor_I", EnigmaConfig.ROTOR_1, EnigmaConfig.TURNOVER_1_ROTOR_1, ringPosition, startPosition);
     }
 
     internal static EntryWheel CreatePlainEntryWheel() {

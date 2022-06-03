@@ -7,7 +7,7 @@ namespace EnigmaMachineV2Tests {
   public class CylinderTests {
     [TestMethod]
     public void Test_Rotor1_Encoding_Before_Reflector_With_A() {
-      Cylinder rotor1 = EnigmaMachineFactory.CreateRotor1('A');
+      Cylinder rotor1 = EnigmaMachineFactory.CreateRotor1('A', 'A');
 
       char expected = 'E';
       char result = rotor1.EncodeLetterChained('A', true);
@@ -17,7 +17,7 @@ namespace EnigmaMachineV2Tests {
 
     [TestMethod]
     public void Test_Rotor1_Encoding_After_Reflector_With_A() {
-      Cylinder rotor1 = EnigmaMachineFactory.CreateRotor1('A');
+      Cylinder rotor1 = EnigmaMachineFactory.CreateRotor1('A', 'A');
 
       char expected = 'U';
       char result = rotor1.EncodeLetterChained('A', false);
@@ -27,7 +27,7 @@ namespace EnigmaMachineV2Tests {
 
     [TestMethod]
     public void Test_Rotor1_Stepping_3_Chars() {
-      Cylinder rotor1 = EnigmaMachineFactory.CreateRotor1('A');
+      Cylinder rotor1 = EnigmaMachineFactory.CreateRotor1('A', 'A');
 
       int expected = 3;
       char dummy = rotor1.EncodeLetterChained('A', true);
@@ -42,7 +42,7 @@ namespace EnigmaMachineV2Tests {
 
     [TestMethod]
     public void Test_Rotor1_Stepping_Last_Of_4_A() {
-      Cylinder rotor1 = EnigmaMachineFactory.CreateRotor1('A');
+      Cylinder rotor1 = EnigmaMachineFactory.CreateRotor1('A', 'A');
 
       char expected = 'F';
       char input = 'A';
@@ -60,7 +60,7 @@ namespace EnigmaMachineV2Tests {
 
     [TestMethod]
     public void Test_Rotor1_Stepping_Last_Of_4_X() {
-      Cylinder rotor1 = EnigmaMachineFactory.CreateRotor1('A');
+      Cylinder rotor1 = EnigmaMachineFactory.CreateRotor1('A', 'A');
 
       char expected = 'E';
       char input = 'X';

@@ -96,7 +96,9 @@ namespace EnigmaMachineV2 {
     public void DrawCylinder(int x, int y, Cylinder cylinder) {
       string cylinderName = cylinder.name;
       if (cylinder.GetType().Name == "Rotor") {
-        cylinderName += $"({cylinder.stepping})";
+        Rotor rotor = (Rotor)cylinder;
+        cylinderName += $"[{rotor.ringPosition}] ";
+        cylinderName += $"- Step: {rotor.stepping}";
       }
 
       Console.ForegroundColor = ConsoleColor.White;

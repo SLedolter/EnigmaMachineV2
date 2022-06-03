@@ -8,9 +8,11 @@ namespace EnigmaMachineV2 {
   public class Rotor : Cylinder {
     public char ringPosition;
     public char startPosition;
+    public char notch;
     public char currentPosition;
 
-    public Rotor(string name, string mapping, char ringPosition, char startPosition) : base(name, mapping) {
+    public Rotor(string name, string mapping, char notch, char ringPosition, char startPosition) : base(name, mapping) {
+      this.notch = notch;
       this.ringPosition = ringPosition;
       this.startPosition = startPosition;
       this.currentPosition = startPosition;

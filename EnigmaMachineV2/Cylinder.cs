@@ -38,10 +38,6 @@ namespace EnigmaMachineV2 {
       char result;
       string inputScheme, outputScheme;
 
-      if (!IsInputLetterValid(input)) {
-        return ' ';
-      }
-
       if (beforeReflector) {
         inputScheme = EnigmaConfig.ALPHABET;
         outputScheme = mapping;
@@ -80,13 +76,6 @@ namespace EnigmaMachineV2 {
 
     public virtual void IncreaseStepping() {
       Debug.WriteLine($"{this.GetType().Name}");
-    }
-
-    private bool IsInputLetterValid(char input) {
-      if (input >= 'A' && input <= 'Z') {
-        return true;
-      }
-      return false;
     }
   }
 }
