@@ -15,8 +15,8 @@ namespace EnigmaMachineV2 {
       this.startPosition = startPosition;
     }
 
-    public override char EncodeLetter(char input, bool beforeReflector) {
-      char result = base.EncodeLetter(input, beforeReflector);
+    public override char EncodeLetterChained(char input, bool beforeReflector) {
+      char result = base.EncodeLetterChained(input, beforeReflector);
 
       return result;
     }

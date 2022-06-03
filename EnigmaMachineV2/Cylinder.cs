@@ -32,27 +32,6 @@ namespace EnigmaMachineV2 {
       }
     }
 
-    public virtual char EncodeLetter(char input, bool beforeReflector) {
-      char result;
-      string inputScheme, outputScheme;
-
-      if (!IsInputLetterValid(input)) {
-        return ' ';
-      }
-
-      if(beforeReflector) {
-        inputScheme = EnigmaConfig.ALPHABET;
-        outputScheme = mapping;
-      } else {
-        inputScheme = mapping;
-        outputScheme = EnigmaConfig.ALPHABET;
-      }
-
-      result = outputScheme[inputScheme.IndexOf(input)];
-
-      return result;
-    }
-
     public virtual char EncodeLetterChained(char input, bool beforeReflector) {
       char result;
       string inputScheme, outputScheme;

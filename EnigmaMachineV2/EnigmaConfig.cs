@@ -16,7 +16,7 @@ namespace EnigmaMachineV2 {
     public const char TURNOVER_1_ROTOR_2 = 'E';
 
     public const string ROTOR_3 = "BDFHJLCPRTXVZNYEIWGAKMUSQO";
-    public const int TURNOVER_1_ROTOR_3 = 22;
+    public const char TURNOVER_1_ROTOR_3 = 'V';
 
     public const string ROTOR_4 = "ESOVPZJAYQUIRHXLNFTGKDCMWB";
     public const int TURNOVER_1_ROTOR_4 = 10;

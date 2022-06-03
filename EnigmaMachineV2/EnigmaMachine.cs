@@ -17,7 +17,12 @@ namespace EnigmaMachineV2 {
       entryWheel = new Cylinder("Entry Wheel", plugboardConfig);
 
       for(int i = 0; i < usedRotors.Length; i++) {
-        rotors.Add(new Rotor($"Rotor{usedRotors[i]}", EnigmaConfig.ROTOR_1, EnigmaConfig.TURNOVER_1_ROTOR_1, 'A'));
+        rotors.Add(
+          new Rotor(
+            $"Rotor{usedRotors[i]}", 
+            (string)typeof(EnigmaConfig).GetField("ROTOR_"+usedRotors[i]).GetValue(null),
+            (char)typeof(EnigmaConfig).GetField("TURNOVER_1_ROTOR_" + usedRotors[i]).GetValue(null),
+            'A'));
       }
 
       reflector = EnigmaMachineFactory.CreateReflectorA();

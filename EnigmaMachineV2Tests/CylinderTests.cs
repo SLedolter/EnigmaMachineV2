@@ -10,7 +10,7 @@ namespace EnigmaMachineV2Tests {
       Cylinder rotor1 = EnigmaMachineFactory.CreateRotor1('A');
 
       char expected = 'E';
-      char result = rotor1.EncodeLetter('A', true);
+      char result = rotor1.EncodeLetterChained('A', true);
 
       Assert.AreEqual(expected, result);
     }
@@ -20,7 +20,7 @@ namespace EnigmaMachineV2Tests {
       Cylinder rotor1 = EnigmaMachineFactory.CreateRotor1('A');
 
       char expected = 'U';
-      char result = rotor1.EncodeLetter('A', false);
+      char result = rotor1.EncodeLetterChained('A', false);
 
       Assert.AreEqual(expected, result);
     }
