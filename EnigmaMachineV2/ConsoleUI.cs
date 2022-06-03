@@ -50,7 +50,6 @@ namespace EnigmaMachineV2 {
 
     private void PrintScreen() {
       Console.Clear();
-      Console.ForegroundColor = ConsoleColor.White;
       PrintTypedAndEncodedMessage(Console.WindowWidth / 2, 0);
       PrintScramblerUnit(0, 0);
 
@@ -58,6 +57,7 @@ namespace EnigmaMachineV2 {
     }
 
     private void PrintCommandSection(string prefix) {
+      Console.ForegroundColor = ConsoleColor.White;
       Console.CursorTop = Console.WindowHeight - COMMAND_AREA_HEIGHT;
       for (int i = 0; i < Console.WindowWidth; i++) {
         Console.Write("-");
@@ -70,6 +70,7 @@ namespace EnigmaMachineV2 {
     private void PrintScramblerUnit(int x, int y) {
       x += PADDING;
       y += PADDING;
+   
       DrawCylinder(x, y, enigmaMachine.entryWheel);
 
       for (int i = 0; i < enigmaMachine.rotors.Count; i++) {
@@ -84,6 +85,7 @@ namespace EnigmaMachineV2 {
     private void PrintTypedAndEncodedMessage(int x, int y) {
       x += PADDING;
       y += PADDING;
+      Console.ForegroundColor = ConsoleColor.White;
       Console.CursorTop = y;
       Console.CursorLeft = x;
       Console.WriteLine(plainMessage);
@@ -97,6 +99,7 @@ namespace EnigmaMachineV2 {
         cylinderName += $"({cylinder.stepping})";
       }
 
+      Console.ForegroundColor = ConsoleColor.White;
       Console.CursorLeft = x;
       Console.CursorTop = y;
       Console.WriteLine($"{cylinderName}");

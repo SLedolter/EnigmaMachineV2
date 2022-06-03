@@ -11,7 +11,7 @@ namespace EnigmaMachineV2 {
     public List<Rotor> rotors = new List<Rotor>();
     public Reflector reflector;
 
-    public EnigmaMachine(string name, string plugboardConfig, string[] usedRotors) {
+    public EnigmaMachine(string name, string plugboardConfig, string[] usedRotors, string reflectorConfig) {
       this.name = name;
 
       entryWheel = new EntryWheel("Entry Wheel", plugboardConfig);
@@ -25,7 +25,11 @@ namespace EnigmaMachineV2 {
             'A'));
       }
 
-      reflector = EnigmaMachineFactory.CreateReflectorA();
+      reflectorConfig = "REFLECTOR_" + reflectorConfig;
+      reflector = new Reflector(
+        "Reflector",
+        EnigmaConfig.TransformSwitchedPlugsToAlphabet((string)typeof(EnigmaConfig).GetField(reflectorConfig).GetValue(null))
+      );
 
       entryWheel.ConnectNextCylinder(rotors.First());
       

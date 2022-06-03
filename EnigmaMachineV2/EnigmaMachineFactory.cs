@@ -11,7 +11,19 @@ namespace EnigmaMachineV2 {
         new EnigmaMachine(
           "Unencoded Plugboard - Simple Rotor1 - Reflector A", 
           EnigmaConfig.TransformSwitchedPlugsToAlphabet(EnigmaConfig.PLUGBOARD_UNENCODED),
-          new string[] {"1"}
+          new string[] {"1"},
+          "A"
+        );
+      return enigmaMachine;
+    }
+
+    public static EnigmaMachine CreateSimplePlugboardRotor1ReflectorEnigmaMachine(string startPositions) {
+      EnigmaMachine enigmaMachine =
+        new EnigmaMachine(
+          "Unencoded Plugboard - Simple Rotor1 - Reflector A",
+          EnigmaConfig.TransformSwitchedPlugsToAlphabet(EnigmaConfig.PLUGBOARD_DAY_29),
+          new string[] { "1" },
+          "B"
         );
       return enigmaMachine;
     }
@@ -21,7 +33,8 @@ namespace EnigmaMachineV2 {
         new EnigmaMachine(
           "Unencoded Plugboard - Rotor1,2,3 - Reflector A",
           EnigmaConfig.TransformSwitchedPlugsToAlphabet(EnigmaConfig.PLUGBOARD_DAY_29),
-          new string[] { "1", "2", "3" }
+          new string[] { "1", "2", "3" },
+          "A"
         );
       return enigmaMachine;
     }
