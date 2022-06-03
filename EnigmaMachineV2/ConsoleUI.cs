@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace EnigmaMachineV2 {
   public class ConsoleUI {
-    const int MESSAGE_AREA_HEIGHT = 5;
-    const int COMMAND_AREA_HEIGHT = 5;
+    const int COMMAND_AREA_HEIGHT = 4;
+    const int PADDING = 1;
     string plainMessage = "";
     string encodedMessage = "";
     string currentMenuPrefix = "";
@@ -48,8 +48,8 @@ namespace EnigmaMachineV2 {
 
     private void PrintScreen() {
       Console.Clear();
-      PrintTypedAndEncodedMessage();
-      PrintScramblerUnit();
+      PrintTypedAndEncodedMessage(Console.WindowWidth/2, 0);
+      PrintScramblerUnit(0, 0);
 
       PrintCommandSection(currentMenuPrefix);
     }
@@ -64,25 +64,27 @@ namespace EnigmaMachineV2 {
       Console.Write($"{currentMenuPrefix}>> ");
     }
 
-    private void PrintScramblerUnit() {
-      Console.CursorTop = 5;
-
-      DrawCylinder(1, MESSAGE_AREA_HEIGHT, enigmaMachine.entryWheel);
+    private void PrintScramblerUnit(int x, int y) {
+      x += PADDING;
+      y += PADDING;
+      DrawCylinder(x, y, enigmaMachine.entryWheel);
 
       for(int i = 0; i < enigmaMachine.rotors.Count; i++) {
-        DrawCylinder(1, ((i+1)*5) + MESSAGE_AREA_HEIGHT, enigmaMachine.rotors[i]);  
+        DrawCylinder(x, ((i+1)*5) + y, enigmaMachine.rotors[i]);  
         Console.WriteLine();
       }
 
-      DrawCylinder(1, (enigmaMachine.rotors.Count + 1) * 5 + MESSAGE_AREA_HEIGHT, enigmaMachine.reflector);
+      DrawCylinder(x, (enigmaMachine.rotors.Count + 1) * 5 + y, enigmaMachine.reflector);
       Console.WriteLine();
     }
 
-    private void PrintTypedAndEncodedMessage() {
-      Console.CursorTop = 1;
-      Console.CursorLeft = 1;
+    private void PrintTypedAndEncodedMessage(int x, int y) {
+      x += PADDING;
+      y += PADDING;
+      Console.CursorTop = y;
+      Console.CursorLeft = x;
       Console.WriteLine(plainMessage);
-      Console.CursorLeft = 1;
+      Console.CursorLeft = x;
       Console.WriteLine(encodedMessage);
     }
 
