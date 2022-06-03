@@ -8,10 +8,12 @@ namespace EnigmaMachineV2 {
   public class Rotor : Cylinder {
     public char ringPosition;
     public char startPosition;
+    public char currentPosition;
 
     public Rotor(string name, string mapping, char ringPosition, char startPosition) : base(name, mapping) {
       this.ringPosition = ringPosition;
       this.startPosition = startPosition;
+      this.currentPosition = startPosition;
     }
 
     public override char EncodeLetterChained(char input, bool beforeReflector) {
@@ -20,17 +22,22 @@ namespace EnigmaMachineV2 {
       return result;
     }
 
+    public override void Reset() {
+      base.Reset();
+      currentPosition = startPosition;
+    }
+
     public override void IncreaseStepping() {
       stepping++;
       stepping %= 26;
 
-      startPosition++;
+      currentPosition++;
 
-      if(startPosition > 'Z') {
-        startPosition = 'A';
+      if(currentPosition > 'Z') {
+        currentPosition = 'A';
       }
 
-      if(startPosition == ringPosition && nextCylinder.GetType().Name == "Rotor") {
+      if(currentPosition == ringPosition && nextCylinder.GetType().Name == "Rotor") {
         nextCylinder.IncreaseStepping();
       }
     }

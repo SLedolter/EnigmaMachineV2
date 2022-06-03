@@ -63,6 +63,13 @@ namespace EnigmaMachineV2 {
       return result;
     }
 
+    public virtual void Reset() {
+      stepping = 0;
+      if(nextCylinder != null) {
+        nextCylinder.Reset();
+      }
+    }
+
     public virtual void IncreaseStepping() {
       Debug.WriteLine($"{this.GetType().Name}");
     }

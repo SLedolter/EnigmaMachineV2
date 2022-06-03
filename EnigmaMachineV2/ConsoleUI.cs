@@ -40,6 +40,8 @@ namespace EnigmaMachineV2 {
             PrintScreen();
           }
           enigmaMachine.Reset();
+          encodedMessage = plainMessage = "";
+          currentMenuPrefix = "";
         }
 
       } while (command != "exit");
@@ -100,7 +102,7 @@ namespace EnigmaMachineV2 {
       
       if(cylinder.GetType().Name == "Rotor") {
         Rotor rotor = (Rotor)cylinder;
-        Console.CursorLeft = x + EnigmaConfig.ALPHABET.IndexOf(rotor.startPosition);
+        Console.CursorLeft = x + EnigmaConfig.ALPHABET.IndexOf(rotor.currentPosition);
         Console.WriteLine("V");
       }
       Console.CursorLeft = x;
