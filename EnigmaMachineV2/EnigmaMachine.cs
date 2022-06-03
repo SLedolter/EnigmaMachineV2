@@ -14,6 +14,9 @@ namespace EnigmaMachineV2 {
     public EnigmaMachine(string name, string plugboardConfig, string[] usedRotors, string reflectorConfig, string ringPosition, string ringStance) {
       this.name = name;
 
+      ringPosition = Reverse(ringPosition);
+      ringStance = Reverse(ringStance);
+
       entryWheel = new EntryWheel("Entry Wheel", plugboardConfig);
 
       for(int i = 0; i < usedRotors.Length; i++) {
@@ -22,7 +25,7 @@ namespace EnigmaMachineV2 {
             $"Rotor{usedRotors[i]}", 
             (string)typeof(EnigmaConfig).GetField("ROTOR_"+usedRotors[i]).GetValue(null),
             (char)typeof(EnigmaConfig).GetField("TURNOVER_1_ROTOR_" + usedRotors[i]).GetValue(null),
-            ringPosition[i],
+            ringPosition [i],
             ringStance[i]));
       }
 
@@ -41,6 +44,12 @@ namespace EnigmaMachineV2 {
         }
         rotor.ConnectNextCylinder(rotors[rotors.IndexOf(rotor)+1]);
       }
+    }
+
+    private string Reverse(string s) {
+      char[] charArray = s.ToCharArray();
+      Array.Reverse(charArray);
+      return new string(charArray);
     }
 
     public void Reset() {
