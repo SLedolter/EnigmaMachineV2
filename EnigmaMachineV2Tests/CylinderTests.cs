@@ -39,5 +39,41 @@ namespace EnigmaMachineV2Tests {
 
       Assert.AreEqual(expected, rotor1.stepping);
     }
+
+    [TestMethod]
+    public void Test_Rotor1_Stepping_Last_Of_4_A() {
+      Cylinder rotor1 = EnigmaMachineFactory.CreateRotor1('A');
+
+      char expected = 'F';
+      char input = 'A';
+      char result = rotor1.EncodeLetterChained(input, true);
+      rotor1.IncreaseStepping();
+      result = rotor1.EncodeLetterChained(input, true);
+      rotor1.IncreaseStepping();
+      result = rotor1.EncodeLetterChained(input, true);
+      rotor1.IncreaseStepping();
+      result = rotor1.EncodeLetterChained(input, true);
+      rotor1.IncreaseStepping();
+
+      Assert.AreEqual(expected, result);
+    }
+
+    [TestMethod]
+    public void Test_Rotor1_Stepping_Last_Of_4_X() {
+      Cylinder rotor1 = EnigmaMachineFactory.CreateRotor1('A');
+
+      char expected = 'E';
+      char input = 'X';
+      char result = rotor1.EncodeLetterChained(input, true);
+      rotor1.IncreaseStepping();
+      result = rotor1.EncodeLetterChained(input, true);
+      rotor1.IncreaseStepping();
+      result = rotor1.EncodeLetterChained(input, true);
+      rotor1.IncreaseStepping();
+      result = rotor1.EncodeLetterChained(input, true);
+      rotor1.IncreaseStepping();
+
+      Assert.AreEqual(expected, result);
+    }
   }
 }
