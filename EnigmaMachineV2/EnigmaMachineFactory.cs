@@ -30,12 +30,12 @@ namespace EnigmaMachineV2 {
       return new Rotor("Rotor_I", EnigmaConfig.ROTOR_1, startPosition, EnigmaConfig.TURNOVER_1_ROTOR_1);
     }
 
-    internal static Cylinder CreatePlainEntryWheel() {
-      return new Cylinder("Entry Wheel", EnigmaConfig.ALPHABET);
+    internal static EntryWheel CreatePlainEntryWheel() {
+      return new EntryWheel("Entry Wheel", EnigmaConfig.ALPHABET);
     }
 
-    public static Cylinder CreateReflectorA() {
-      return new Cylinder("Reflector", EnigmaConfig.TransformSwitchedPlugsToAlphabet(EnigmaConfig.REFLECTOR_A));
+    public static Reflector CreateReflectorA() {
+      return new Reflector("Reflector", EnigmaConfig.TransformSwitchedPlugsToAlphabet(EnigmaConfig.REFLECTOR_A));
     }
   }
 }

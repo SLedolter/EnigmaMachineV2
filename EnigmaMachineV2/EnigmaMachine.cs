@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 namespace EnigmaMachineV2 {
   public class EnigmaMachine {
     public string name;
-    public Cylinder entryWheel;
+    public EntryWheel entryWheel;
     public List<Rotor> rotors = new List<Rotor>();
-    public Cylinder reflector;
+    public Reflector reflector;
 
     public EnigmaMachine(string name, string plugboardConfig, string[] usedRotors) {
       this.name = name;
 
-      entryWheel = new Cylinder("Entry Wheel", plugboardConfig);
+      entryWheel = new EntryWheel("Entry Wheel", plugboardConfig);
 
       for(int i = 0; i < usedRotors.Length; i++) {
         rotors.Add(

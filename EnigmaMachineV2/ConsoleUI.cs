@@ -50,6 +50,7 @@ namespace EnigmaMachineV2 {
 
     private void PrintScreen() {
       Console.Clear();
+      Console.ForegroundColor = ConsoleColor.White;
       PrintTypedAndEncodedMessage(Console.WindowWidth / 2, 0);
       PrintScramblerUnit(0, 0);
 
@@ -99,16 +100,37 @@ namespace EnigmaMachineV2 {
       Console.CursorLeft = x;
       Console.CursorTop = y;
       Console.WriteLine($"{cylinderName}");
-      
-      if(cylinder.GetType().Name == "Rotor") {
+
+      if (cylinder.GetType().Name == "Rotor") {
         Rotor rotor = (Rotor)cylinder;
         Console.CursorLeft = x + EnigmaConfig.ALPHABET.IndexOf(rotor.currentPosition);
         Console.WriteLine("V");
       }
+
       Console.CursorLeft = x;
-      Console.WriteLine(EnigmaConfig.ALPHABET);
+      Console.Write(EnigmaConfig.ALPHABET);
+      if (cylinder.firstIndex > -1 && cylinder.secondIndex > -1) {
+        Console.CursorLeft = x + cylinder.firstIndex;
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.Write(EnigmaConfig.ALPHABET[cylinder.firstIndex]);
+        Console.CursorLeft = x + cylinder.secondIndex;
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.Write(EnigmaConfig.ALPHABET[cylinder.secondIndex]);
+      }
+      Console.WriteLine();
+
+      Console.ForegroundColor = ConsoleColor.White;
       Console.CursorLeft = x;
-      Console.WriteLine(cylinder.mapping);
+      Console.Write(cylinder.mapping);
+      if (cylinder.firstIndex > -1 && cylinder.secondIndex > -1) {
+        Console.CursorLeft = x + cylinder.firstIndex;
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.Write(cylinder.mapping[cylinder.firstIndex]);
+        Console.CursorLeft = x + cylinder.secondIndex;
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.Write(cylinder.mapping[cylinder.secondIndex]);
+      }
+      Console.WriteLine();
     }
   }
 }

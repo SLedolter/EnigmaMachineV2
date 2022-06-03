@@ -31,8 +31,11 @@ namespace EnigmaMachineV2Tests {
 
       int expected = 3;
       char dummy = rotor1.EncodeLetterChained('A', true);
+      rotor1.IncreaseStepping();
       dummy = rotor1.EncodeLetterChained(dummy, true);
+      rotor1.IncreaseStepping();
       dummy = rotor1.EncodeLetterChained(dummy, true);
+      rotor1.IncreaseStepping();
 
       Assert.AreEqual(expected, rotor1.stepping);
     }

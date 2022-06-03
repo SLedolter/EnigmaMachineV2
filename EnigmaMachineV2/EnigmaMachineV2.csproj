@@ -48,8 +48,10 @@
     <Compile Include="EnigmaConfig.cs" />
     <Compile Include="EnigmaMachine.cs" />
     <Compile Include="EnigmaMachineFactory.cs" />
+    <Compile Include="EntryWheel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reflector.cs" />
     <Compile Include="Rotor.cs" />
   </ItemGroup>
   <ItemGroup>

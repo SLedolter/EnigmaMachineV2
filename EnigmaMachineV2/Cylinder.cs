@@ -10,6 +10,7 @@ namespace EnigmaMachineV2 {
     public string name;
     public string mapping;
     public int stepping = 0;
+    public int firstIndex = -1, secondIndex = -1;
 
     public Cylinder previousCylinder;
     public Cylinder nextCylinder;
@@ -60,11 +61,18 @@ namespace EnigmaMachineV2 {
         result = previousCylinder.EncodeLetterChained(result, false);
       }
 
+      if(beforeReflector) {
+        firstIndex = indexInInputScheme;
+      } else {
+        secondIndex = indexInInputScheme;
+      }
+
       return result;
     }
 
     public virtual void Reset() {
       stepping = 0;
+      firstIndex = secondIndex = -1;
       if(nextCylinder != null) {
         nextCylinder.Reset();
       }
