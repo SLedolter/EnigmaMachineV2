@@ -87,9 +87,15 @@ namespace EnigmaMachineV2 {
     }
 
     public void DrawCylinder(int x, int y, Cylinder cylinder) {
+      string cylinderName = cylinder.name;
+      if (cylinder.GetType().Name == "Rotor") {
+        cylinderName += $"({cylinder.stepping})";
+      }
+
       Console.CursorLeft = x;
       Console.CursorTop = y;
-      Console.WriteLine(cylinder.name);
+      Console.WriteLine($"{cylinderName}");
+      
       Console.CursorLeft = x;
       Console.WriteLine(EnigmaConfig.ALPHABET);
       Console.CursorLeft = x;

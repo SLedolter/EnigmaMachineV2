@@ -9,10 +9,11 @@ namespace EnigmaMachineV2 {
   public class Cylinder {
     public string name;
     public string mapping;
+    public int stepping = 0;
 
     public Cylinder previousCylinder;
     public Cylinder nextCylinder;
-
+    
     public Cylinder(string name, string mapping) {
       this.name = name;
       this.mapping = mapping;

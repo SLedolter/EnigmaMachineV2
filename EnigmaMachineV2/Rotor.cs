@@ -8,7 +8,6 @@ namespace EnigmaMachineV2 {
   public class Rotor : Cylinder {
     public char ringPosition;
     public char startPosition;
-    public int stepping = 0;
 
     public Rotor(string name, string mapping, char ringPosition, char startPosition) : base(name, mapping) {
       this.ringPosition = ringPosition;
