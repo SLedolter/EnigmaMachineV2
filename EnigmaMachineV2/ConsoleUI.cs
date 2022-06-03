@@ -106,6 +106,8 @@ namespace EnigmaMachineV2 {
 
       if (cylinder.GetType().Name == "Rotor") {
         Rotor rotor = (Rotor)cylinder;
+        Console.CursorLeft = x + EnigmaConfig.ALPHABET.IndexOf(rotor.ringPosition);
+        Console.Write("#");
         Console.CursorLeft = x + EnigmaConfig.ALPHABET.IndexOf(rotor.currentPosition);
         Console.WriteLine("V");
       }
