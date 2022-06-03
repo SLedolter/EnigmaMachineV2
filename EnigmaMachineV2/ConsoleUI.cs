@@ -62,15 +62,11 @@ namespace EnigmaMachineV2 {
       Console.CursorTop = 5;
 
       for(int i = 0; i < enigmaMachine.rotors.Count; i++) {
-        Console.CursorLeft = 1;
-        Console.WriteLine(EnigmaConfig.ALPHABET);
-        Console.CursorLeft = 1;
-        Console.WriteLine(enigmaMachine.rotors[i].mapping);
+        DrawCylinder(1, (i*5), enigmaMachine.rotors[i]);  
         Console.WriteLine();
       }
 
-      Console.CursorLeft = 1;
-      Console.WriteLine(enigmaMachine.reflector.mapping);
+      DrawCylinder(1, enigmaMachine.rotors.Count * 5, enigmaMachine.reflector);
       Console.WriteLine();
     }
 
@@ -80,6 +76,14 @@ namespace EnigmaMachineV2 {
       Console.WriteLine(plainMessage);
       Console.CursorLeft = 1;
       Console.WriteLine(encodedMessage);
+    }
+
+    public void DrawCylinder(int x, int y, Cylinder cylinder) {
+      Console.CursorLeft = x;
+      Console.CursorTop = y;
+      Console.WriteLine(EnigmaConfig.ALPHABET);
+      Console.CursorLeft = 1;
+      Console.WriteLine(cylinder.mapping);
     }
   }
 }

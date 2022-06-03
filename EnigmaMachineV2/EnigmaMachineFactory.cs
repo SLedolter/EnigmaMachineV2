@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace EnigmaMachineV2 {
   public static class EnigmaMachineFactory {
-    public static EnigmaMachine CreateSimpleRotor1ReflectorEnigmaMachine(string startPosition) {
+    public static EnigmaMachine CreateSimpleRotor1ReflectorEnigmaMachine(string startPositions) {
       return new EnigmaMachine("Simple Rotor1 - Reflector A");
     }
 
-    public static Rotor CreateRotor1(string startPosition) {
+    public static Rotor CreateRotor1(char startPosition) {
       return new Rotor("Rotor_I", EnigmaConfig.CYLINDER_1, startPosition, EnigmaConfig.TURNOVER_1_CYLINDER_1);
     }
 

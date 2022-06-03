@@ -14,7 +14,7 @@ namespace EnigmaMachineV2 {
     public EnigmaMachine(string name) {
       this.name = name;
 
-      rotors.Add(EnigmaMachineFactory.CreateRotor1("A"));
+      rotors.Add(EnigmaMachineFactory.CreateRotor1('A'));
       reflector = EnigmaMachineFactory.CreateReflectorA();
 
       rotors.Last().ConnectNextCylinder(reflector);

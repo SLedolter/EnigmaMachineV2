@@ -9,10 +9,10 @@ namespace EnigmaMachineV2 {
     public const string PLUGBOARD_DAY_29 = "AD CN ET FL GI JV KZ PU QY WX";
 
     public const string CYLINDER_1 = "EKMFLGDQVZNTOWYHXUSPAIBRCJ";
-    public const string TURNOVER_1_CYLINDER_1 = "Q";
+    public const char TURNOVER_1_CYLINDER_1 = 'Q';
     
     public const string CYLINDER_2 = "AJDKSIRUXBLHWTMCQGZNPYFVOE";
-    public const string TURNOVER_1_CYLINDER_2 = "E";
+    public const char TURNOVER_1_CYLINDER_2 = 'E';
 
     public const string CYLINDER_3 = "BDFHJLCPRTXVZNYEIWGAKMUSQO";
     public const int TURNOVER_1_CYLINDER_3 = 22;
