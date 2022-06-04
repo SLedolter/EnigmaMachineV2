@@ -98,7 +98,6 @@ namespace EnigmaMachineV2 {
       if (cylinder.GetType().Name == "Rotor") {
         Rotor rotor = (Rotor)cylinder;
         cylinderName += $"[{rotor.ringPosition}] ";
-        cylinderName += $"- Step: {rotor.stepping}";
       }
 
       Console.ForegroundColor = ConsoleColor.White;

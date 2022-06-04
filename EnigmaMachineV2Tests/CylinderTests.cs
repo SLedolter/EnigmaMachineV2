@@ -26,21 +26,6 @@ namespace EnigmaMachineV2Tests {
     }
 
     [TestMethod]
-    public void Test_Rotor1_Stepping_3_Chars() {
-      Cylinder rotor1 = EnigmaMachineFactory.CreateRotor1('A', 'A');
-
-      int expected = 3;
-      char dummy = rotor1.EncodeLetterChained('A', true);
-      rotor1.IncreaseStepping();
-      dummy = rotor1.EncodeLetterChained(dummy, true);
-      rotor1.IncreaseStepping();
-      dummy = rotor1.EncodeLetterChained(dummy, true);
-      rotor1.IncreaseStepping();
-
-      Assert.AreEqual(expected, rotor1.stepping);
-    }
-
-    [TestMethod]
     public void Test_Rotor1_Stepping_Last_Of_4_A() {
       Cylinder rotor1 = EnigmaMachineFactory.CreateRotor1('A', 'A');
 

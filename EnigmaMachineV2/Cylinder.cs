@@ -9,7 +9,6 @@ namespace EnigmaMachineV2 {
   public class Cylinder {
     public string name;
     public string mapping;
-    public int stepping = 0;
     public int firstIndex = -1, secondIndex = -1;
 
     public Cylinder previousCylinder;
@@ -46,7 +45,7 @@ namespace EnigmaMachineV2 {
         outputScheme = EnigmaConfig.ALPHABET;
       }
 
-      int indexInInputScheme = (inputScheme.IndexOf(input)+stepping)%26;
+      int indexInInputScheme = inputScheme.IndexOf(input);
       result = outputScheme[indexInInputScheme];
 
       if(beforeReflector && nextCylinder != null) {
@@ -67,7 +66,6 @@ namespace EnigmaMachineV2 {
     }
 
     public virtual void Reset() {
-      stepping = 0;
       firstIndex = secondIndex = -1;
       if(nextCylinder != null) {
         nextCylinder.Reset();

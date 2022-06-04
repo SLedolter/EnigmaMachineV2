@@ -10,8 +10,10 @@ namespace EnigmaMachineV2 {
     public char startPosition;
     public char notch;
     public char currentPosition;
+    public string originalMapping;
 
     public Rotor(string name, string mapping, char notch, char ringPosition, char startPosition) : base(name, mapping) {
+      this.originalMapping = mapping;
       this.notch = notch;
       this.ringPosition = ringPosition;
       this.startPosition = startPosition;
@@ -27,11 +29,11 @@ namespace EnigmaMachineV2 {
     public override void Reset() {
       base.Reset();
       currentPosition = startPosition;
+      mapping = originalMapping;
     }
 
     public override void IncreaseStepping() {
-      stepping++;
-      stepping %= 26;
+      RotateRing(1);
 
       currentPosition++;
 
@@ -42,6 +44,11 @@ namespace EnigmaMachineV2 {
       if(currentPosition == notch && nextCylinder.GetType().Name == "Rotor") {
         nextCylinder.IncreaseStepping();
       }
+    }
+
+    private void RotateRing(int count) {
+      mapping = mapping.Insert(mapping.Length, mapping[0].ToString());
+      mapping = mapping.Remove(0, 1);
     }
   }
 }
