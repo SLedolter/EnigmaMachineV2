@@ -23,7 +23,7 @@ namespace EnigmaMachineV2 {
       this.ringPosition = ringPosition;
       this.ringStance = ringStance;
 
-      entryWheel = new EntryWheel("Entry Wheel", plugboardConfig);
+      entryWheel = new EntryWheel("Entry Wheel", EnigmaConfig.TransformSwitchedPlugsToAlphabet(plugboardConfig));
 
       for (int i = usedRotors.Length - 1; i >= 0; i--) {
         rotors.Add(

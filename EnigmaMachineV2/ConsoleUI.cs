@@ -113,7 +113,12 @@ namespace EnigmaMachineV2 {
       Console.ForegroundColor = ConsoleColor.White;
       Console.CursorLeft = x;
       Console.CursorTop = y;
-      Console.WriteLine($"{cylinderName}");
+      Console.Write($"{cylinderName}");
+
+      if (cylinder.GetType().Name == "EntryWheel") {
+        Console.Write($" ({enigmaMachine.plugboardConfig})");
+      }
+      Console.WriteLine();
 
       if (cylinder.GetType().Name == "Rotor") {
         Rotor rotor = (Rotor)cylinder;

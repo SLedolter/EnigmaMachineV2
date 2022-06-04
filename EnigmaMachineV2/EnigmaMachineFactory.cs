@@ -10,7 +10,7 @@ namespace EnigmaMachineV2 {
       EnigmaMachine enigmaMachine = 
         new EnigmaMachine(
           "Unencoded Plugboard - Simple Rotor1 - Reflector A", 
-          EnigmaConfig.TransformSwitchedPlugsToAlphabet(EnigmaConfig.PLUGBOARD_UNENCODED),
+          EnigmaConfig.PLUGBOARD_UNENCODED,
           new string[] {"1"},
           "A",
           "AAA",
@@ -23,7 +23,7 @@ namespace EnigmaMachineV2 {
       EnigmaMachine enigmaMachine =
         new EnigmaMachine(
           "Unencoded Plugboard - Simple Rotor1 - Reflector A",
-          EnigmaConfig.TransformSwitchedPlugsToAlphabet(EnigmaConfig.PLUGBOARD_DAY_29),
+          EnigmaConfig.PLUGBOARD_DAY_29,
           new string[] { "1" },
           "B",
           "AAA",
@@ -36,7 +36,7 @@ namespace EnigmaMachineV2 {
       EnigmaMachine enigmaMachine =
         new EnigmaMachine(
           "Enigma Instruction Manual 1930",
-          EnigmaConfig.TransformSwitchedPlugsToAlphabet(EnigmaConfig.PLUGBOARD_ENIGMA_INSTRUCTION_MANUAL),
+          EnigmaConfig.PLUGBOARD_ENIGMA_INSTRUCTION_MANUAL,
           new string[] { "2", "1", "3" },
           "A",
           "XMV",
@@ -49,7 +49,7 @@ namespace EnigmaMachineV2 {
       EnigmaMachine enigmaMachine =
         new EnigmaMachine(
           "Unencoded Plugboard - Rotor1,2,3 - Reflector A",
-          EnigmaConfig.TransformSwitchedPlugsToAlphabet(EnigmaConfig.PLUGBOARD_DAY_29),
+          EnigmaConfig.PLUGBOARD_DAY_29,
           new string[] { "1", "2", "3" },
           "A",
           "AAA",
