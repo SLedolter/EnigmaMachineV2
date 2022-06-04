@@ -18,6 +18,8 @@ namespace EnigmaMachineV2 {
       this.ringPosition = ringPosition;
       this.startPosition = startPosition;
       this.currentPosition = startPosition;
+
+      RotateRing(EnigmaConfig.ALPHABET.IndexOf(ringPosition));
     }
 
     public override char EncodeLetterChained(char input, bool beforeReflector) {

@@ -97,7 +97,7 @@ namespace EnigmaMachineV2 {
       string cylinderName = cylinder.name;
       if (cylinder.GetType().Name == "Rotor") {
         Rotor rotor = (Rotor)cylinder;
-        cylinderName += $"[{rotor.ringPosition}] ";
+        cylinderName += $"[{rotor.ringPosition}|{EnigmaConfig.ALPHABET.IndexOf(rotor.ringPosition)}] ";
       }
 
       Console.ForegroundColor = ConsoleColor.White;
