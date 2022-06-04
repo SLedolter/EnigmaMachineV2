@@ -74,11 +74,11 @@ namespace EnigmaMachineV2 {
       DrawCylinder(x, y, enigmaMachine.entryWheel);
 
       for (int i = 0; i < enigmaMachine.rotors.Count; i++) {
-        DrawCylinder(x, ((i + 1) * 5) + y, enigmaMachine.rotors[i]);
+        DrawCylinder(x, ((i + 1) * 5) + y - 1, enigmaMachine.rotors[i]);
         Console.WriteLine();
       }
 
-      DrawCylinder(x, (enigmaMachine.rotors.Count + 1) * 5 + y, enigmaMachine.reflector);
+      DrawCylinder(x, (enigmaMachine.rotors.Count + 1) * 5 + y - 1, enigmaMachine.reflector);
       Console.WriteLine();
     }
 
