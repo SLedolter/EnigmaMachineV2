@@ -39,7 +39,7 @@ namespace EnigmaMachineV2 {
         currentPosition = 'A';
       }
 
-      if(currentPosition == ringPosition && nextCylinder.GetType().Name == "Rotor") {
+      if(currentPosition == notch && nextCylinder.GetType().Name == "Rotor") {
         nextCylinder.IncreaseStepping();
       }
     }
