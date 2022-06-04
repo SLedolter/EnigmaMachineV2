@@ -35,7 +35,7 @@ namespace EnigmaMachineV2 {
     public static EnigmaMachine CreateEnigmaInstructionManual1930Machine() {
       EnigmaMachine enigmaMachine =
         new EnigmaMachine(
-          "Unencoded Plugboard - Simple Rotor1 - Reflector A",
+          "Enigma Instruction Manual 1930",
           EnigmaConfig.TransformSwitchedPlugsToAlphabet(EnigmaConfig.PLUGBOARD_ENIGMA_INSTRUCTION_MANUAL),
           new string[] { "2", "1", "3" },
           "A",

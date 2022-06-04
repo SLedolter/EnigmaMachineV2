@@ -51,9 +51,19 @@ namespace EnigmaMachineV2 {
     private void PrintScreen() {
       Console.Clear();
       PrintTypedAndEncodedMessage(Console.WindowWidth / 2, 0);
-      PrintScramblerUnit(0, 0);
+      PrintEnigmaMachineInfos(0, 0);
+      PrintScramblerUnit(0, 1);
 
       PrintCommandSection(currentMenuPrefix);
+    }
+
+    private void PrintEnigmaMachineInfos(int x, int y) {
+      x += PADDING;
+      y += PADDING;
+
+      Console.CursorLeft = x;
+      Console.CursorTop = y;
+      Console.WriteLine($"{enigmaMachine.name} - {enigmaMachine.wheelOrder} | {enigmaMachine.ringPosition} | {enigmaMachine.ringStance}");
     }
 
     private void PrintCommandSection(string prefix) {
