@@ -19,15 +19,15 @@ namespace EnigmaMachineV2 {
       return enigmaMachine;
     }
 
-    public static EnigmaMachine CreateSimplePlugboardRotor1ReflectorEnigmaMachine(string startPositions) {
+    public static EnigmaMachine CreateSimplePlugboardRotor1ReflectorEnigmaMachine() {
       EnigmaMachine enigmaMachine =
         new EnigmaMachine(
-          "Unencoded Plugboard - Simple Rotor1 - Reflector A",
+          "Plugboard D29 - Rotor1 - Reflector A",
           EnigmaConfig.PLUGBOARD_DAY_29,
           new string[] { "1" },
+          "A",
           "B",
-          "AAA",
-          "AAA"
+          "C"
         );
       return enigmaMachine;
     }
