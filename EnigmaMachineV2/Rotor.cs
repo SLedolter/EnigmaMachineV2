@@ -19,7 +19,20 @@ namespace EnigmaMachineV2 {
       this.startPosition = startPosition;
       this.currentPosition = startPosition;
 
-      RotateRing(EnigmaConfig.ALPHABET.IndexOf(ringPosition));
+      SetRingposition(ringPosition);
+      RotateRing(EnigmaConfig.ALPHABET.IndexOf(startPosition));
+    }
+
+    private void SetRingposition(char ringPosition) {
+      string result = "";
+      for (int i = 0; i < mapping.Length; i++) {
+        char newChar = mapping[i];
+        int charIndex = EnigmaConfig.ALPHABET.IndexOf(newChar);
+        charIndex += EnigmaConfig.ALPHABET.IndexOf(ringPosition);
+        charIndex %= 26;
+        result += EnigmaConfig.ALPHABET[charIndex];
+      }
+      mapping = result;
     }
 
     public override char EncodeLetterChained(char input, bool beforeReflector) {
@@ -32,7 +45,8 @@ namespace EnigmaMachineV2 {
       base.Reset();
       currentPosition = startPosition;
       mapping = originalMapping;
-      RotateRing(EnigmaConfig.ALPHABET.IndexOf(ringPosition));
+      SetRingposition(ringPosition);
+      RotateRing(EnigmaConfig.ALPHABET.IndexOf(startPosition));
     }
 
     public override void IncreaseStepping() {

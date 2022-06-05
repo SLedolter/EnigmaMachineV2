@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace EnigmaMachineV2 {
   class Program {
     static void Main(string[] args)   {
-      EnigmaMachine enigmaMachine = EnigmaMachineFactory.CreateCodesAndCiphersExampleMachine();
+      EnigmaMachine enigmaMachine = EnigmaMachineFactory.CreateEnigmaInstructionManual1930Machine();
       ConsoleUI consoleUI = new ConsoleUI(enigmaMachine);
 
       consoleUI.ShowUI();
