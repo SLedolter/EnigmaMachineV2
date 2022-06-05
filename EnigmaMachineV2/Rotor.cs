@@ -66,10 +66,12 @@ namespace EnigmaMachineV2 {
     }
 
     private void RotateRing(int count) {
+      Debug.Write($"{count}: {mapping} -> ");
       for(int i = 0; i < count; i++) {
         mapping = mapping.Insert(mapping.Length, mapping[0].ToString());
         mapping = mapping.Remove(0, 1);
       }
+      Debug.WriteLine(mapping);
     }
   }
 }
