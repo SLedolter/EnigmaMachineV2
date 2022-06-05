@@ -69,8 +69,9 @@ namespace EnigmaMachineV2 {
         return ' ';
       }
 
-      rotors.First().IncreaseStepping();
+      
       result = entryWheel.EncodeLetterChained(input, true);
+      rotors.First().IncreaseStepping();
 
       return result;
     }

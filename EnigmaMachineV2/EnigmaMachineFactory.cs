@@ -45,6 +45,20 @@ namespace EnigmaMachineV2 {
       return enigmaMachine;
     }
 
+    // https://www.codesandciphers.org.uk/enigma/example1.htm
+    public static EnigmaMachine CreateCodesAndCiphersExampleMachine() {
+      EnigmaMachine enigmaMachine =
+        new EnigmaMachine(
+          "Codes&Ciphers - Rotor1,2,3 - Reflector B",
+          EnigmaConfig.PLUGBOARD_UNENCODED,
+          new string[] { "1", "2", "3" },
+          "B",
+          "AAA",
+          "AAA"
+        );
+      return enigmaMachine;
+    }
+
     public static EnigmaMachine CreateDay29EnigmaMachine(string startPositions) {
       EnigmaMachine enigmaMachine =
         new EnigmaMachine(
