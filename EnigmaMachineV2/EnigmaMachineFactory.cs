@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EnigmaMachineV2 {
   public static class EnigmaMachineFactory {
-    public static EnigmaMachine CreateSimpleRotor1ReflectorEnigmaMachine(string startPositions) {
+    public static EnigmaMachine CreateSimpleRotor1ReflectorEnigmaMachine() {
       EnigmaMachine enigmaMachine = 
         new EnigmaMachine(
           "Unencoded Plugboard - Simple Rotor1 - Reflector A", 

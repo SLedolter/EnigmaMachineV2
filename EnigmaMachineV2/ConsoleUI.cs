@@ -50,7 +50,7 @@ namespace EnigmaMachineV2 {
 
     private void PrintScreen() {
       Console.Clear();
-      PrintTypedAndEncodedMessage(Console.WindowWidth / 2, 0);
+      PrintTypedAndEncodedMessage(Console.WindowWidth / 2, 1);
       PrintEnigmaMachineInfos(0, 0);
       PrintScramblerUnit(0, 1);
 
