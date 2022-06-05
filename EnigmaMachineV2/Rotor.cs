@@ -32,6 +32,7 @@ namespace EnigmaMachineV2 {
       base.Reset();
       currentPosition = startPosition;
       mapping = originalMapping;
+      RotateRing(ringPosition);
     }
 
     public override void IncreaseStepping() {

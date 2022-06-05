@@ -81,14 +81,15 @@ namespace EnigmaMachineV2 {
       x += PADDING;
       y += PADDING;
    
-      DrawCylinder(x, y, enigmaMachine.entryWheel);
+      DrawCylinderHorizontal(x, y, enigmaMachine.entryWheel);
 
       for (int i = 0; i < enigmaMachine.rotors.Count; i++) {
-        DrawCylinder(x, ((i + 1) * 5) + y - 1, enigmaMachine.rotors[i]);
+        DrawCylinderHorizontal(x, ((i + 1) * 5) + y - 1, enigmaMachine.rotors[i]);
         Console.WriteLine();
       }
 
-      DrawCylinder(x, (enigmaMachine.rotors.Count + 1) * 5 + y - 1, enigmaMachine.reflector);
+      DrawCylinderHorizontal(x, (enigmaMachine.rotors.Count + 1) * 5 + y - 1, enigmaMachine.reflector);
+      //DrawCylinderVertical(Console.WindowWidth/2, 5, enigmaMachine.reflector);
       Console.WriteLine();
     }
 
@@ -103,7 +104,7 @@ namespace EnigmaMachineV2 {
       Console.WriteLine(encodedMessage);
     }
 
-    public void DrawCylinder(int x, int y, Cylinder cylinder) {
+    public void DrawCylinderHorizontal(int x, int y, Cylinder cylinder) {
       string cylinderName = cylinder.name;
       if (cylinder.GetType().Name == "Rotor") {
         Rotor rotor = (Rotor)cylinder;
@@ -152,6 +153,18 @@ namespace EnigmaMachineV2 {
         Console.Write(cylinder.mapping[cylinder.secondIndex]);
       }
       Console.WriteLine();
+    }
+
+    public void DrawCylinderVertical(int startX, int startY, Cylinder cylinder) {
+      for(int y = 0; y < EnigmaConfig.ALPHABET.Length; y++) {
+        SetCursor(startX, y + startY);
+        Console.Write(EnigmaConfig.ALPHABET[y]);
+      }
+    }
+
+    private void SetCursor(int x, int y) {
+      Console.CursorLeft = x;
+      Console.CursorTop = y;
     }
   }
 }
