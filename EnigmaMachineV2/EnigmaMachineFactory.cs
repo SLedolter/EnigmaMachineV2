@@ -13,8 +13,8 @@ namespace EnigmaMachineV2 {
           EnigmaConfig.PLUGBOARD_UNENCODED,
           new string[] {"1"},
           "A",
-          "AAA",
-          "AAA"
+          "V",
+          "B"
         );
       return enigmaMachine;
     }

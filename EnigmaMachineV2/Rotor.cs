@@ -7,34 +7,25 @@ using System.Threading.Tasks;
 
 namespace EnigmaMachineV2 {
   public class Rotor : Cylinder {
+    public string alphabet;
     public char ringPosition;
+    public int markingPoint;
     public char startPosition;
     public char notch;
     public char currentPosition;
     public string originalMapping;
 
     public Rotor(string name, string mapping, char notch, char ringPosition, char startPosition) : base(name, mapping) {
+      this.alphabet = EnigmaConfig.ALPHABET;
       this.originalMapping = mapping;
       this.notch = notch;
+      this.markingPoint = mapping.IndexOf('A');
       this.ringPosition = ringPosition;
       this.startPosition = startPosition;
       this.currentPosition = startPosition;
 
       SetRingposition(ringPosition);
-      RotateRing(EnigmaConfig.ALPHABET.IndexOf(startPosition));
-    }
-
-    private void SetRingposition(char ringPosition) {
-      string result = "";
-      for (int i = 0; i < mapping.Length; i++) {
-        char newChar = mapping[i];
-        int charIndex = EnigmaConfig.ALPHABET.IndexOf(newChar);
-        charIndex += EnigmaConfig.ALPHABET.IndexOf(ringPosition);
-        charIndex %= 26;
-        result += EnigmaConfig.ALPHABET[charIndex];
-      }
-      Debug.WriteLine($"{name}:{mapping} {result}");
-      mapping = result;
+      //RotateRingUp(EnigmaConfig.ALPHABET.IndexOf(startPosition));
     }
 
     public override char EncodeLetterChained(char input, bool beforeReflector) {
@@ -43,16 +34,32 @@ namespace EnigmaMachineV2 {
       return result;
     }
 
-    public override void Reset() {
-      base.Reset();
-      currentPosition = startPosition;
+    private void SetRingposition(char ringPosition) {
       mapping = originalMapping;
-      SetRingposition(ringPosition);
-      RotateRing(EnigmaConfig.ALPHABET.IndexOf(startPosition));
+      string result = "";
+      for (int i = 0; i < mapping.Length; i++) {
+        char newChar = mapping[i];
+        int charIndex = alphabet.IndexOf(newChar);
+        charIndex += alphabet.IndexOf(ringPosition);
+        charIndex %= 26;
+        result += alphabet[charIndex];
+      }
+      markingPoint = (markingPoint + alphabet.IndexOf(ringPosition))%26;
+      Debug.WriteLine($"{name}:{mapping} {result}");
+      mapping = result;
+      int newMarkingSpot = markingPoint - mapping.IndexOf(ringPosition);
+      Debug.WriteLine($"NewMP: {newMarkingSpot}");
+      if(newMarkingSpot < 0) {
+        RotateRingDown(-newMarkingSpot);
+      } else {
+        RotateRingUp(newMarkingSpot);
+      }
+      
     }
 
+
     public override void IncreaseStepping() {
-      RotateRing(1);
+      RotateLettersUp(1);
 
       currentPosition++;
 
@@ -65,13 +72,42 @@ namespace EnigmaMachineV2 {
       }
     }
 
-    private void RotateRing(int count) {
+    private void RotateLettersUp(int count) {
+      for (int i = 0; i < count; i++) {
+        alphabet = alphabet.Insert(alphabet.Length, alphabet[0].ToString());
+        alphabet = alphabet.Remove(0, 1);
+      }
+      Debug.WriteLine(alphabet);
+    }
+
+    private void RotateRingDown(int count) {
       Debug.Write($"{count}: {mapping} -> ");
-      for(int i = 0; i < count; i++) {
+      for (int i = 0; i < count; i++) {
         mapping = mapping.Insert(mapping.Length, mapping[0].ToString());
         mapping = mapping.Remove(0, 1);
       }
       Debug.WriteLine(mapping);
+    }
+
+    private void RotateRingUp(int count) {
+      Debug.Write($"{count}: {mapping} -> ");
+      for (int i = 0; i < count; i++) {
+        mapping = mapping.Insert(0, mapping[mapping.Length - 1].ToString());
+        mapping = mapping.Remove(mapping.Length - 1, 1);
+      }
+      Debug.WriteLine(mapping);
+    }
+
+    public override void Reset() {
+      base.Reset();
+      currentPosition = startPosition;
+      mapping = originalMapping;
+      markingPoint = mapping.IndexOf('A');
+      alphabet = EnigmaConfig.ALPHABET;
+
+      SetRingposition(ringPosition);
+      
+      //RotateRingUp(EnigmaConfig.ALPHABET.IndexOf(startPosition));
     }
   }
 }

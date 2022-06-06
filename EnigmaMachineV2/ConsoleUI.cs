@@ -15,6 +15,8 @@ namespace EnigmaMachineV2 {
     EnigmaMachine enigmaMachine;
 
     public ConsoleUI(EnigmaMachine enigmaMachine) {
+      Console.WindowHeight = 50;
+      Console.WindowWidth = 150;
       this.enigmaMachine = enigmaMachine;
     }
 
@@ -88,7 +90,7 @@ namespace EnigmaMachineV2 {
         Console.WriteLine();
       }
 
-      DrawCylinderHorizontal(x, (enigmaMachine.rotors.Count + 1) * 5 + y - 1, enigmaMachine.reflector);
+      DrawCylinderHorizontal(x, (enigmaMachine.rotors.Count + 1) * 5 + y, enigmaMachine.reflector);
       //DrawCylinderVertical(Console.WindowWidth/2, 5, enigmaMachine.reflector);
       Console.WriteLine();
     }
@@ -106,9 +108,10 @@ namespace EnigmaMachineV2 {
 
     public void DrawCylinderHorizontal(int x, int y, Cylinder cylinder) {
       string cylinderName = cylinder.name;
+      string alphabet = EnigmaConfig.ALPHABET;
       if (cylinder.GetType().Name == "Rotor") {
         Rotor rotor = (Rotor)cylinder;
-        cylinderName += $"[{rotor.ringPosition}|{EnigmaConfig.ALPHABET.IndexOf(rotor.ringPosition)}] ";
+        cylinderName += $"[{rotor.ringPosition}|{EnigmaConfig.ALPHABET.IndexOf(rotor.ringPosition)}] - Mark: [{rotor.markingPoint}] ";
       }
 
       Console.ForegroundColor = ConsoleColor.White;
@@ -123,21 +126,22 @@ namespace EnigmaMachineV2 {
 
       if (cylinder.GetType().Name == "Rotor") {
         Rotor rotor = (Rotor)cylinder;
-        Console.CursorLeft = x + EnigmaConfig.ALPHABET.IndexOf(rotor.notch);
+        Console.CursorLeft = x + rotor.alphabet.IndexOf(rotor.notch);
         Console.Write("#");
-        Console.CursorLeft = x + EnigmaConfig.ALPHABET.IndexOf(rotor.currentPosition);
+        Console.CursorLeft = x + rotor.alphabet.IndexOf(rotor.currentPosition);
+        alphabet = rotor.alphabet;
         Console.WriteLine("V");
       }
 
       Console.CursorLeft = x;
-      Console.Write(EnigmaConfig.ALPHABET);
+      Console.Write(alphabet);
       if (cylinder.firstIndex > -1 && cylinder.secondIndex > -1) {
         Console.CursorLeft = x + cylinder.firstIndex;
         Console.ForegroundColor = ConsoleColor.Green;
-        Console.Write(EnigmaConfig.ALPHABET[cylinder.firstIndex]);
+        Console.Write(alphabet[cylinder.firstIndex]);
         Console.CursorLeft = x + cylinder.secondIndex;
         Console.ForegroundColor = ConsoleColor.Red;
-        Console.Write(EnigmaConfig.ALPHABET[cylinder.secondIndex]);
+        Console.Write(alphabet[cylinder.secondIndex]);
       }
       Console.WriteLine();
 
@@ -151,6 +155,15 @@ namespace EnigmaMachineV2 {
         Console.CursorLeft = x + cylinder.secondIndex;
         Console.ForegroundColor = ConsoleColor.Red;
         Console.Write(cylinder.mapping[cylinder.secondIndex]);
+      }
+      Console.WriteLine();
+
+      Console.CursorLeft = x;
+      if(cylinder.GetType().Name == "Rotor") {
+        Rotor rotor = (Rotor)cylinder;
+        Console.CursorLeft = x + rotor.markingPoint;
+        Console.Write('O');
+        Console.WriteLine();
       }
       Console.WriteLine();
     }

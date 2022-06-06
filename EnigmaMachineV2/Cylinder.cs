@@ -34,6 +34,7 @@ namespace EnigmaMachineV2 {
     }
 
     public virtual char EncodeLetterChained(char input, bool beforeReflector) {
+      Debug.Write($"{input} --> ");
       char result;
       string inputScheme, outputScheme;
 

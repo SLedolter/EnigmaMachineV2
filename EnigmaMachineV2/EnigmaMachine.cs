@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -52,12 +53,6 @@ namespace EnigmaMachineV2 {
       }
     }
 
-    private string Reverse(string s) {
-      char[] charArray = s.ToCharArray();
-      Array.Reverse(charArray);
-      return new string(charArray);
-    }
-
     public void Reset() {
       entryWheel.Reset();
     }
@@ -71,6 +66,8 @@ namespace EnigmaMachineV2 {
 
       
       result = entryWheel.EncodeLetterChained(input, true);
+      Debug.WriteLine($"{result}");
+
       rotors.First().IncreaseStepping();
 
       return result;
