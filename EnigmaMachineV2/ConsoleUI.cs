@@ -128,8 +128,8 @@ namespace EnigmaMachineV2 {
         Rotor rotor = (Rotor)cylinder;
         Console.CursorLeft = x + rotor.alphabet.IndexOf(rotor.notch);
         Console.Write("#");
-        Console.CursorLeft = x + rotor.alphabet.IndexOf(rotor.currentPosition);
         alphabet = rotor.alphabet;
+        Console.CursorLeft = x;
         Console.WriteLine("V");
       }
 

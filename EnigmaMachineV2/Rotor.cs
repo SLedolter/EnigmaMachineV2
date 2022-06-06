@@ -25,7 +25,7 @@ namespace EnigmaMachineV2 {
       this.currentPosition = startPosition;
 
       SetRingposition(ringPosition);
-      //RotateRingUp(EnigmaConfig.ALPHABET.IndexOf(startPosition));
+      RotateCompleteRingUp(EnigmaConfig.ALPHABET.IndexOf(startPosition));
     }
 
     public override char EncodeLetterChained(char input, bool beforeReflector) {
@@ -44,17 +44,17 @@ namespace EnigmaMachineV2 {
         charIndex %= 26;
         result += alphabet[charIndex];
       }
-      markingPoint = (markingPoint + alphabet.IndexOf(ringPosition))%26;
+      markingPoint = (markingPoint + alphabet.IndexOf(ringPosition)) % 26;
       Debug.WriteLine($"{name}:{mapping} {result}");
       mapping = result;
       int newMarkingSpot = markingPoint - mapping.IndexOf(ringPosition);
       Debug.WriteLine($"NewMP: {newMarkingSpot}");
-      if(newMarkingSpot < 0) {
+      if (newMarkingSpot < 0) {
         RotateRingDown(-newMarkingSpot);
       } else {
         RotateRingUp(newMarkingSpot);
       }
-      
+
     }
 
 
@@ -72,10 +72,28 @@ namespace EnigmaMachineV2 {
       }
     }
 
+    private void RotateCompleteRingUp(int count) {
+      RotateRingUp(count);
+      RotateLettersUp(count);
+    }
+
+    private void RotateCompleteRingDown(int count) {
+      RotateRingDown(count);
+      RotateLettersDown(count);
+    }
+
     private void RotateLettersUp(int count) {
       for (int i = 0; i < count; i++) {
         alphabet = alphabet.Insert(alphabet.Length, alphabet[0].ToString());
         alphabet = alphabet.Remove(0, 1);
+      }
+      Debug.WriteLine(alphabet);
+    }
+
+    private void RotateLettersDown(int count) {
+      for (int i = 0; i < count; i++) {
+        alphabet = alphabet.Insert(0, alphabet[alphabet.Length - 1].ToString());
+        alphabet = alphabet.Remove(alphabet.Length - 1, 1);
       }
       Debug.WriteLine(alphabet);
     }
@@ -106,7 +124,7 @@ namespace EnigmaMachineV2 {
       alphabet = EnigmaConfig.ALPHABET;
 
       SetRingposition(ringPosition);
-      
+
       //RotateRingUp(EnigmaConfig.ALPHABET.IndexOf(startPosition));
     }
   }
