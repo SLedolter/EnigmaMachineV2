@@ -60,6 +60,7 @@ namespace EnigmaMachineV2 {
 
     public override void IncreaseStepping() {
       RotateLettersUp(1);
+      RotateCompleteRingUp(1);
 
       currentPosition++;
 
